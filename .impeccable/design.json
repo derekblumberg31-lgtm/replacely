@@ -1,205 +1,611 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-26T22:30:00Z",
+  "generatedAt": "2026-10-27T12:00:00Z",
   "title": "Design System: Replacely",
   "extensions": {
     "colorMeta": {
-      "calendar-red": { "role": "primary", "displayName": "Calendar Red", "canonical": "#c8281d", "dark": { "accent": "#ff6a5c", "band": "#9e2117" }, "cssVar": ["--accent", "--band", "--red"], "tonalRamp": ["#200000", "#4d0000", "#7d0000", "#a61f16", "#d93c2e", "#fa6a59", "#ffa798", "#fbe9e7"] },
-      "calendar-red-pressed": { "role": "primary", "displayName": "Calendar Red, Pressed", "canonical": "#a61f16", "dark": "#ff8a7e", "cssVar": "--accent-deep" },
-      "calendar-red-wash": { "role": "primary", "displayName": "Calendar Red Wash", "canonical": "#fbe9e7", "dark": "rgba(255, 106, 92, 0.15)", "cssVar": ["--accent-soft", "--red-soft"] },
-      "holiday-green": { "role": "secondary", "displayName": "Holiday Green", "canonical": "#1d6b3a", "dark": "#57c27f", "onColorDark": "#0c2614", "cssVar": "--green", "tonalRamp": ["#001101", "#002e10", "#064d25", "#216e3d", "#458f5c", "#6eb07f", "#9ed3ab", "#d4fadc"] },
-      "due-amber": { "role": "tertiary", "displayName": "Due Amber", "canonical": "#8a5200", "dark": "#f0a640", "cssVar": "--orange", "tonalRamp": ["#190500", "#391b00", "#603300", "#864f00", "#a96f2c", "#c99258", "#e8ba8d", "#f8eedd"] },
-      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "#161514", "dark": "#f2f1ee", "cssVar": "--text", "tonalRamp": ["#0b0b0b", "#252423", "#403f3e", "#5f5d5c", "#7e7d7c", "#9f9e9d", "#c5c4c3", "#efeeed"] },
-      "ink-secondary": { "role": "neutral", "displayName": "Secondary Ink", "canonical": "#5f5b55", "dark": "#aaa59d", "cssVar": "--text-2" },
-      "ink-tertiary": { "role": "neutral", "displayName": "Tertiary Ink", "canonical": "#6c6862", "dark": "#9a958d", "cssVar": "--text-3" },
-      "crossed-ink": { "role": "neutral", "displayName": "Crossed Ink", "canonical": "#3d3a36", "dark": "#d8d5cf", "cssVar": "--ink-x" },
-      "grid-rule": { "role": "neutral", "displayName": "Grid Rule", "canonical": "#d6d3cc", "dark": "#45423e", "cssVar": "--grid", "tonalRamp": ["#0c0b09", "#252420", "#423f3b", "#605d57", "#807d77", "#a19e98", "#c6c4bf", "#f0eeea"] },
-      "paper-ground": { "role": "neutral", "displayName": "Paper Ground", "canonical": "#f2f2ef", "dark": "#121211", "cssVar": "--bg", "tonalRamp": ["#0b0b0a", "#242423", "#40403e", "#5e5e5b", "#7d7d7b", "#9e9e9c", "#c4c4c2", "#f2f2ef"] },
-      "page-white": { "role": "neutral", "displayName": "Page White", "canonical": "#ffffff", "dark": "#1d1c1b", "cssVar": ["--surface", "--bar-bg"] },
-      "pressed-paper": { "role": "neutral", "displayName": "Pressed Paper", "canonical": "#f6f5f2", "dark": "#252422", "cssVar": "--surface-2" },
-      "fill": { "role": "neutral", "displayName": "Fill", "canonical": "#ebeae6", "dark": "#2b2a28", "cssVar": "--fill" },
-      "fill-strong": { "role": "neutral", "displayName": "Fill Strong", "canonical": "#e0ded8", "dark": "#363431", "cssVar": "--fill-strong" },
-      "separator": { "role": "neutral", "displayName": "Separator", "canonical": "rgba(22, 21, 20, 0.08)", "dark": "rgba(255, 255, 255, 0.09)", "cssVar": "--separator" },
-      "separator-strong": { "role": "neutral", "displayName": "Separator Strong", "canonical": "rgba(22, 21, 20, 0.13)", "dark": "rgba(255, 255, 255, 0.15)", "cssVar": "--separator-strong" },
-      "scrim": { "role": "neutral", "displayName": "Scrim", "canonical": "rgba(18, 17, 16, 0.4)", "dark": "rgba(0, 0, 0, 0.62)", "cssVar": "--backdrop" },
-      "toast-ink": { "role": "neutral", "displayName": "Toast Ink", "canonical": "#1e1d1c", "dark": "#f2f1ee", "cssVar": "--toast-bg" }
+      "brick": {
+        "role": "primary",
+        "displayName": "Muted Brick",
+        "canonical": "#a8503c",
+        "oklch": "oklch(53.7% 0.121 34)",
+        "tonalRamp": [
+          "#1e0100",
+          "#42140a",
+          "#692d20",
+          "#934837",
+          "#bf6550",
+          "#de8d79",
+          "#fdb5a4",
+          "#ffdecf"
+        ],
+        "darkValue": "#df8f7b"
+      },
+      "brick-pressed": {
+        "role": "primary",
+        "displayName": "Pressed Brick",
+        "canonical": "#8f4232",
+        "oklch": "oklch(47.6% 0.108 33)",
+        "tonalRamp": [
+          "#1c0200",
+          "#3f170e",
+          "#663025",
+          "#8f4b3d",
+          "#ba6957",
+          "#d98f7f",
+          "#f8b7a8",
+          "#ffe0d3"
+        ],
+        "darkValue": "#e9a593"
+      },
+      "brick-wash": {
+        "role": "primary",
+        "displayName": "Brick Wash",
+        "canonical": "#f5e8e3",
+        "oklch": "oklch(94.0% 0.016 42)",
+        "tonalRamp": [
+          "#0e0a09",
+          "#292421",
+          "#48403d",
+          "#685f5b",
+          "#8b807b",
+          "#ada29e",
+          "#d0c7c3",
+          "#f4edea"
+        ],
+        "darkValue": "rgba(223, 143, 123, 0.14)"
+      },
+      "done-green": {
+        "role": "secondary",
+        "displayName": "Done Green",
+        "canonical": "#3d7a55",
+        "oklch": "oklch(52.8% 0.087 155)",
+        "tonalRamp": [
+          "#001004",
+          "#0b2c19",
+          "#224c33",
+          "#3a6e4e",
+          "#55926c",
+          "#7fb391",
+          "#a9d6b8",
+          "#d4f9e0"
+        ],
+        "darkValue": "#7cbf96"
+      },
+      "due-amber": {
+        "role": "tertiary",
+        "displayName": "Due Amber",
+        "canonical": "#8a5200",
+        "oklch": "oklch(49.2% 0.110 66)",
+        "tonalRamp": [
+          "#190500",
+          "#3a1d00",
+          "#5f3805",
+          "#86551b",
+          "#ae7433",
+          "#cd9964",
+          "#edbf92",
+          "#ffe7c1"
+        ],
+        "darkValue": "#f0a640"
+      },
+      "due-amber-wash": {
+        "role": "tertiary",
+        "displayName": "Due Amber Wash",
+        "canonical": "#f8eedd",
+        "oklch": "oklch(95.2% 0.025 81)",
+        "tonalRamp": [
+          "#0e0b06",
+          "#29241d",
+          "#474137",
+          "#686053",
+          "#8a8172",
+          "#aca496",
+          "#cfc8bc",
+          "#f4eee4"
+        ],
+        "darkValue": "rgba(240, 166, 64, 0.14)"
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Soft Ink",
+        "canonical": "#2b2926",
+        "oklch": "oklch(28.2% 0.006 78)",
+        "tonalRamp": [
+          "#0d0b08",
+          "#272522",
+          "#44423e",
+          "#63615d",
+          "#84827e",
+          "#a7a5a1",
+          "#cbc9c5",
+          "#f1eeea"
+        ],
+        "darkValue": "#ebe9e4"
+      },
+      "ink-secondary": {
+        "role": "neutral",
+        "displayName": "Warm Graphite",
+        "canonical": "#6b665f",
+        "oklch": "oklch(51.3% 0.013 77)",
+        "tonalRamp": [
+          "#0d0b08",
+          "#272521",
+          "#45413d",
+          "#65605a",
+          "#87817a",
+          "#a9a49e",
+          "#ccc8c3",
+          "#f1eee9"
+        ],
+        "darkValue": "#aaa59d"
+      },
+      "ink-tertiary": {
+        "role": "neutral",
+        "displayName": "Warm Pewter",
+        "canonical": "#716c65",
+        "oklch": "oklch(53.4% 0.012 77)",
+        "tonalRamp": [
+          "#0d0b08",
+          "#272521",
+          "#45413d",
+          "#65605a",
+          "#87817a",
+          "#a9a49e",
+          "#ccc8c3",
+          "#f1eee9"
+        ],
+        "darkValue": "#9a958d"
+      },
+      "crossed-ink": {
+        "role": "neutral",
+        "displayName": "Crossed Ink",
+        "canonical": "#9a958d",
+        "oklch": "oklch(67.2% 0.013 80)",
+        "tonalRamp": [
+          "#0d0b08",
+          "#272521",
+          "#45413c",
+          "#65615a",
+          "#86827a",
+          "#a9a49d",
+          "#ccc9c2",
+          "#f1eee9"
+        ],
+        "darkValue": "#8f8a82"
+      },
+      "grid-rule": {
+        "role": "neutral",
+        "displayName": "Grid Rule",
+        "canonical": "#dedad3",
+        "oklch": "oklch(89.0% 0.010 82)",
+        "tonalRamp": [
+          "#0c0b09",
+          "#272522",
+          "#44423d",
+          "#64615b",
+          "#85827b",
+          "#a8a59f",
+          "#ccc9c4",
+          "#f0eeea"
+        ],
+        "darkValue": "#45423e"
+      },
+      "warm-ground": {
+        "role": "neutral",
+        "displayName": "Warm Ground",
+        "canonical": "#f4f3f0",
+        "oklch": "oklch(96.4% 0.004 91)",
+        "tonalRamp": [
+          "#0c0b09",
+          "#262523",
+          "#43423f",
+          "#62615f",
+          "#83827f",
+          "#a6a5a2",
+          "#cac9c6",
+          "#efeeeb"
+        ],
+        "darkValue": "#171716"
+      },
+      "page-white": {
+        "role": "neutral",
+        "displayName": "Page White",
+        "canonical": "#ffffff",
+        "oklch": "oklch(100.0% 0.000 90)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#252525",
+          "#424242",
+          "#616161",
+          "#828282",
+          "#a5a5a5",
+          "#c9c9c9",
+          "#eeeeee"
+        ],
+        "darkValue": "#21201e"
+      },
+      "pressed-paper": {
+        "role": "neutral",
+        "displayName": "Pressed Paper",
+        "canonical": "#f8f7f4",
+        "oklch": "oklch(97.6% 0.004 91)",
+        "tonalRamp": [
+          "#0c0b09",
+          "#262523",
+          "#434240",
+          "#62615f",
+          "#838280",
+          "#a6a5a2",
+          "#cac9c6",
+          "#efeeeb"
+        ],
+        "darkValue": "#252422"
+      },
+      "fill": {
+        "role": "neutral",
+        "displayName": "Fill",
+        "canonical": "#ecebe7",
+        "oklch": "oklch(94.0% 0.005 95)",
+        "tonalRamp": [
+          "#0c0b09",
+          "#262522",
+          "#43423f",
+          "#62615e",
+          "#83827f",
+          "#a6a5a1",
+          "#cac9c5",
+          "#efeeea"
+        ],
+        "darkValue": "#2b2a28"
+      },
+      "fill-strong": {
+        "role": "neutral",
+        "displayName": "Fill Strong",
+        "canonical": "#e0ded8",
+        "oklch": "oklch(90.0% 0.008 91)",
+        "tonalRamp": [
+          "#0c0b07",
+          "#262521",
+          "#44423d",
+          "#63615c",
+          "#84827d",
+          "#a7a59f",
+          "#cbc9c3",
+          "#f0eee8"
+        ],
+        "darkValue": "#363431"
+      },
+      "separator": {
+        "role": "neutral",
+        "displayName": "Separator",
+        "canonical": "rgba(22, 21, 20, 0.08)",
+        "darkValue": "rgba(255, 255, 255, 0.09)"
+      },
+      "separator-strong": {
+        "role": "neutral",
+        "displayName": "Separator Strong",
+        "canonical": "rgba(22, 21, 20, 0.13)",
+        "darkValue": "rgba(255, 255, 255, 0.15)"
+      },
+      "scrim": {
+        "role": "neutral",
+        "displayName": "Scrim",
+        "canonical": "rgba(18, 17, 16, 0.4)",
+        "darkValue": "rgba(0, 0, 0, 0.62)"
+      },
+      "toast-ink": {
+        "role": "neutral",
+        "displayName": "Toast Ink",
+        "canonical": "#2f2d2a",
+        "oklch": "oklch(29.8% 0.006 78)",
+        "tonalRamp": [
+          "#0d0b08",
+          "#272522",
+          "#44423e",
+          "#63615d",
+          "#84827e",
+          "#a7a5a1",
+          "#cbc9c5",
+          "#f1eeea"
+        ],
+        "darkValue": "#e6e4df"
+      }
     },
     "typographyMeta": {
-      "display": { "displayName": "Display", "purpose": "Page title in the red band (uppercase) and the empty-state calendar day.", "cssVar": "--font-num", "fontStretch": "72%" },
-      "countdown-large": { "displayName": "Countdown Large", "purpose": "The single countdown at the top of the detail sheet.", "fontStretch": "75%" },
-      "countdown": { "displayName": "Countdown", "purpose": "Right-aligned countdown on every row; Insights cost figures.", "fontStretch": "75%" },
-      "section-head": { "displayName": "Section Head", "purpose": "Uppercase labels over grouped lists; red when the section is overdue.", "fontStretch": "75%", "textTransform": "uppercase" },
-      "headline": { "displayName": "Headline", "purpose": "Task name in the detail sheet; empty-state headings at 20px." },
-      "title": { "displayName": "Title", "purpose": "Task names in rows; typed form input." },
-      "body": { "displayName": "Body", "purpose": "Detail values, sheet actions, button labels (600), empty-state copy." },
-      "caption": { "displayName": "Caption", "purpose": "Locations, countdown units, band month line, summary line." },
-      "label": { "displayName": "Label", "purpose": "Tab bar labels and badges." },
-      "footnote": { "displayName": "Footnote", "purpose": "Local-storage note, settings and chart footnotes." }
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Page title in the header; the one large line on a page."
+      },
+      "countdown-large": {
+        "displayName": "Countdown Large",
+        "purpose": "Countdown at the top of a task's detail sheet; unit beside it at 17px."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Task name heading a detail sheet; empty-state headings at 20px."
+      },
+      "countdown": {
+        "displayName": "Countdown",
+        "purpose": "Right-aligned countdown in task and schedule rows; unit at 15px/500 secondary."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Task names in rows and form input values."
+      },
+      "section-head": {
+        "displayName": "Section Head",
+        "purpose": "Sentence-case group headings above each list, secondary ink."
+      },
+      "button": {
+        "displayName": "Button",
+        "purpose": "Button labels."
+      },
+      "subhead": {
+        "displayName": "Subhead",
+        "purpose": "Locations, form labels, summary line, setting descriptions."
+      },
+      "footnote": {
+        "displayName": "Footnote",
+        "purpose": "Hints, chart captions, settings footnotes, tertiary ink."
+      },
+      "tab-label": {
+        "displayName": "Tab Label",
+        "purpose": "Bottom tab bar labels only."
+      }
     },
-    "fonts": [
-      { "family": "Archivo", "source": "public/fonts/archivo-latin-var.woff2", "weights": "500 800", "stretch": "62% 100%", "display": "swap", "license": "public/fonts/OFL.txt" },
-      { "family": "System SF", "stack": "-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" }
-    ],
     "shadows": [
-      { "name": "group-rest", "value": "0 1px 2px rgba(22, 21, 20, 0.04)", "dark": "0 1px 1px rgba(0, 0, 0, 0.4)", "purpose": "Every grouped list and the empty state (--shadow-card)." },
-      { "name": "sheet", "value": "0 -18px 60px rgba(10, 15, 22, 0.22)", "purpose": "Bottom sheet, cast upward." },
-      { "name": "alert", "value": "0 24px 70px rgba(0, 0, 0, 0.32)", "purpose": "Native-style centred alert." },
-      { "name": "toast", "value": "0 12px 30px rgba(0, 0, 0, 0.24)", "purpose": "Confirmation toast above the tab bar." },
-      { "name": "switch-knob", "value": "0 2px 5px rgba(0, 0, 0, 0.22)", "purpose": "White knob of the switch." },
-      { "name": "shell-frame", "value": "0 0 0 1px var(--separator), 0 30px 80px rgba(22, 21, 20, 0.12)", "purpose": "App shell floating on the wide-screen ground (>= 840px)." }
-    ],
-    "materials": [
-      { "name": "sheet-scrim", "value": "background: var(--backdrop); backdrop-filter: blur(4px)", "purpose": "Behind sheets." },
-      { "name": "alert-scrim", "value": "background: var(--backdrop); backdrop-filter: blur(6px)", "purpose": "Behind alerts." },
-      { "name": "alert-surface", "value": "background: color-mix(in srgb, var(--surface) 94%, transparent); backdrop-filter: blur(28px) saturate(180%)", "purpose": "The only translucent surface; mirrors the iOS alert." }
+      {
+        "name": "group-whisper",
+        "value": "0 1px 2px rgba(22, 21, 20, 0.04)",
+        "dark": "0 1px 1px rgba(0, 0, 0, 0.4)",
+        "purpose": "Task groups, inset groups, detail lists, empty states."
+      },
+      {
+        "name": "segment-lift",
+        "value": "0 1px 2px rgba(22, 21, 20, 0.09), 0 0 0 0.5px rgba(22, 21, 20, 0.04)",
+        "purpose": "Selected segment in a segmented control."
+      },
+      {
+        "name": "sheet",
+        "value": "0 -18px 60px rgba(22, 21, 20, 0.22)",
+        "purpose": "Bottom sheets."
+      },
+      {
+        "name": "alert",
+        "value": "0 24px 70px rgba(0, 0, 0, 0.32)",
+        "purpose": "Centred alerts."
+      },
+      {
+        "name": "toast",
+        "value": "0 12px 30px rgba(0, 0, 0, 0.24)",
+        "purpose": "Toast above the tab bar."
+      },
+      {
+        "name": "switch-knob",
+        "value": "0 2px 5px rgba(0, 0, 0, 0.22)",
+        "purpose": "White thumb of the switch."
+      },
+      {
+        "name": "desktop-frame",
+        "value": "0 0 0 1px var(--separator), 0 30px 80px rgba(22, 21, 20, 0.12)",
+        "dark": "0 0 0 1px var(--separator), 0 30px 80px rgba(0, 0, 0, 0.7)",
+        "purpose": "App frame on screens 840px and wider."
+      }
     ],
     "motion": [
-      { "name": "ease", "value": "cubic-bezier(0.22, 0.8, 0.24, 1)", "purpose": "Default for presses, colour changes and row slides." },
-      { "name": "ease-settle", "value": "cubic-bezier(0.32, 0.72, 0, 1)", "purpose": "Settling motion: tab pop, switch knob, alert and toast entry." },
-      { "name": "sheet-in", "value": "0.42s cubic-bezier(0.22, 1, 0.25, 1)", "purpose": "Sheet slides up from translateY(100%); release snaps back over 0.3s ease." },
-      { "name": "page-in", "value": "0.3s ease opacity 0 -> 1", "purpose": "Tab change fades the page in." },
-      { "name": "tab-pop", "value": "0.34s ease-settle scale 0.9 -> 1.06 -> 1", "purpose": "The icon of the tab just made active." },
-      { "name": "press", "value": "scale 0.975 (buttons), 0.95 (tabs), 0.92 (round add button)", "purpose": "Tactile press feedback, 0.16-0.18s." },
-      { "name": "alert-in", "value": "0.28s ease-settle from scale 0.92, opacity 0", "purpose": "Alert entry." },
-      { "name": "reduced-motion", "value": "animation and transition durations 0.001ms; scroll-behavior auto", "purpose": "Honours prefers-reduced-motion globally." }
+      {
+        "name": "ease",
+        "value": "cubic-bezier(0.22, 0.8, 0.24, 1)",
+        "purpose": "Default easing for presses, fades and colour changes (0.16-0.3s)."
+      },
+      {
+        "name": "ease-settle",
+        "value": "cubic-bezier(0.32, 0.72, 0, 1)",
+        "purpose": "Things settling into place: alert in (0.28s), toast in (0.34s), switch knob (0.24s)."
+      },
+      {
+        "name": "sheet-in",
+        "value": "0.42s cubic-bezier(0.22, 1, 0.25, 1)",
+        "purpose": "Sheet sliding up from below; no overshoot."
+      },
+      {
+        "name": "page-in",
+        "value": "0.3s opacity fade",
+        "purpose": "Tab change: the page fades in, nothing slides."
+      },
+      {
+        "name": "press-scale",
+        "value": "scale(0.975) buttons, 0.95 tabs, 0.94 add button",
+        "purpose": "Tactile press feedback."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "animation and transition durations 0.001ms",
+        "purpose": "prefers-reduced-motion: reduce switches all motion off."
+      }
     ],
     "breakpoints": [
-      { "name": "tiny", "value": "max-width: 340px", "purpose": "Tutorial art and mini cards shrink." },
-      { "name": "small", "value": "max-width: 359px", "purpose": "Page gutter 14px; tighter sizes." },
-      { "name": "short", "value": "max-height: 700px", "purpose": "Tutorial compresses; swipe hint hidden." },
-      { "name": "sheet-panel", "value": "min-width: 720px", "purpose": "Sheets become centred 28px panels, 85dvh max." },
-      { "name": "framed", "value": "min-width: 840px", "purpose": "Shell floats on a darker ground with frame shadow." }
+      {
+        "name": "tiny",
+        "value": "max-width: 340px"
+      },
+      {
+        "name": "small",
+        "value": "max-width: 359px"
+      },
+      {
+        "name": "short",
+        "value": "max-height: 700px"
+      },
+      {
+        "name": "sheet-dialog",
+        "value": "min-width: 720px"
+      },
+      {
+        "name": "desktop-frame",
+        "value": "min-width: 840px"
+      }
     ],
-    "layout": { "shellMax": "820px", "pageMax": "700px", "gutter": "16px", "bandMinHeight": "84px", "tabMinHeight": "49px", "rowSeparatorInset": "16px", "minTouchTarget": "44px" },
-    "themes": { "light": ":root", "dark": ":root[data-theme='dark']", "note": "Dark mode is the same calendar on charcoal stock; structure identical, red kept." }
+    "theming": {
+      "mechanism": "data-theme=\"dark\" on :root, set from prefers-color-scheme or the Settings override; darkValue on each colorMeta entry is its dark counterpart.",
+      "onAccentDark": "#1c0503",
+      "onGreenDark": "#0c2614"
+    }
   },
   "components": [
-    {
-      "name": "Header Band",
-      "kind": "nav",
-      "refersTo": "band",
-      "description": "The printed red calendar header: month and year, page title in condensed caps, round add button.",
-      "html": "<header class=\"ds-band\"><div class=\"ds-band-copy\"><span class=\"ds-band-month\">October 2026</span><h1 class=\"ds-band-title\">Tasks</h1></div><button class=\"ds-band-add\" aria-label=\"Add task\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\"><path d=\"M12 5v14M5 12h14\"/></svg></button></header>",
-      "css": ".ds-band { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; min-height: 84px; padding: 12px 20px 14px; background: var(--band, #c8281d); color: var(--on-band, #fff); } .ds-band-copy { display: flex; flex-direction: column; gap: 3px; } .ds-band-month { color: var(--on-band-2, rgba(255,255,255,0.8)); font-family: var(--font); font-size: 13px; font-weight: 600; line-height: 1.2; } .ds-band-title { margin: 0; font-family: var(--font-num, 'Archivo', sans-serif); font-size: 40px; font-weight: 800; font-stretch: 72%; line-height: 0.95; text-transform: uppercase; } .ds-band-add { display: grid; place-items: center; width: 44px; height: 44px; margin-right: -6px; border: 0; border-radius: 50%; color: var(--on-band, #fff); background: rgba(255,255,255,0.16); cursor: pointer; transition: transform 0.18s var(--ease), background 0.2s var(--ease); } .ds-band-add:active { transform: scale(0.92); background: rgba(255,255,255,0.28); } .ds-band-add:focus-visible { outline: 2px solid var(--on-band, #fff); outline-offset: 2px; }"
-    },
     {
       "name": "Primary Button",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "The one primary action on a screen, printed in calendar red.",
-      "html": "<button class=\"ds-btn ds-btn-primary\">Add task</button>",
-      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 18px; border: 0; border-radius: 14px; font-family: var(--font); font-size: 15px; font-weight: 600; letter-spacing: -0.01em; cursor: pointer; transition: transform 0.16s var(--ease), background 0.18s var(--ease); } .ds-btn:active { transform: scale(0.975); } .ds-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; } .ds-btn-primary { background: var(--accent); color: var(--on-accent); } .ds-btn-primary:active { background: var(--accent-deep); }"
+      "description": "The one main action of a sheet or empty state.",
+      "html": "<button class=\"ds-btn-primary\">Mark done</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 18px; border: 0; border-radius: 14px; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 15px; font-weight: 600; letter-spacing: -0.01em; cursor: pointer; transition: transform 0.16s cubic-bezier(0.22, 0.8, 0.24, 1), background 0.18s cubic-bezier(0.22, 0.8, 0.24, 1); background: var(--accent, #a8503c); color: var(--on-accent, #ffffff); } .ds-btn-primary:hover { background: var(--accent-deep, #8f4232); } .ds-btn-primary:active { transform: scale(0.975); background: var(--accent-deep, #8f4232); } .ds-btn-primary:focus-visible { outline: 2px solid var(--accent, #a8503c); outline-offset: 2px; }"
     },
     {
       "name": "Secondary Button",
       "kind": "button",
       "refersTo": "button-secondary",
-      "description": "Neutral fill button for secondary choices.",
-      "html": "<button class=\"ds-btn2\">Clear search</button>",
-      "css": ".ds-btn2 { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 18px; border: 0; border-radius: 14px; background: var(--fill); color: var(--text); font-family: var(--font); font-size: 15px; font-weight: 600; letter-spacing: -0.01em; cursor: pointer; transition: transform 0.16s var(--ease); } .ds-btn2:active { transform: scale(0.975); } .ds-btn2:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }"
+      "description": "A quieter alternative beside a primary action.",
+      "html": "<button class=\"ds-btn-secondary\">Clear search</button>",
+      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 18px; border: 0; border-radius: 14px; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 15px; font-weight: 600; letter-spacing: -0.01em; cursor: pointer; transition: transform 0.16s cubic-bezier(0.22, 0.8, 0.24, 1), background 0.18s cubic-bezier(0.22, 0.8, 0.24, 1); background: var(--fill, #ecebe7); color: var(--text, #2b2926); } .ds-btn-secondary:hover, .ds-btn-secondary:active { background: var(--fill-strong, #e0ded8); } .ds-btn-secondary:active { transform: scale(0.975); } .ds-btn-secondary:focus-visible { outline: 2px solid var(--accent, #a8503c); outline-offset: 2px; }"
     },
     {
       "name": "Done Button",
       "kind": "button",
       "refersTo": "button-done",
-      "description": "Marks a job done; holiday green is reserved for completion.",
-      "html": "<button class=\"ds-btn-done\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m5 12.5 4.5 4.5L19 7.5\"/></svg>Mark done</button>",
-      "css": ".ds-btn-done { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 18px; border: 0; border-radius: 14px; background: var(--green); color: var(--on-green); font-family: var(--font); font-size: 15px; font-weight: 600; letter-spacing: -0.01em; cursor: pointer; transition: transform 0.16s var(--ease); } .ds-btn-done:active { transform: scale(0.975); filter: brightness(0.92); } .ds-btn-done:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }"
+      "description": "Confirms a completion; green is reserved for done.",
+      "html": "<button class=\"ds-btn-done\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m4.5 12.5 5 5 10-11\"/></svg>Done</button>",
+      "css": ".ds-btn-done { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 18px; border: 0; border-radius: 14px; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 15px; font-weight: 600; letter-spacing: -0.01em; cursor: pointer; transition: transform 0.16s cubic-bezier(0.22, 0.8, 0.24, 1), background 0.18s cubic-bezier(0.22, 0.8, 0.24, 1); background: var(--green, #3d7a55); color: var(--on-green, #ffffff); } .ds-btn-done:hover, .ds-btn-done:active { filter: brightness(0.92); } .ds-btn-done:active { transform: scale(0.975); } .ds-btn-done:focus-visible { outline: 2px solid var(--accent, #a8503c); outline-offset: 2px; }"
+    },
+    {
+      "name": "Add Button",
+      "kind": "button",
+      "refersTo": "add-button",
+      "description": "Round add control at the right of the header.",
+      "html": "<button class=\"ds-add\" aria-label=\"Add task\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 5v14M5 12h14\"/></svg></button>",
+      "css": ".ds-add { display: grid; place-items: center; width: 44px; height: 44px; border: 0; border-radius: 50%; background: var(--fill, #ecebe7); color: var(--accent, #a8503c); cursor: pointer; transition: transform 0.18s cubic-bezier(0.22, 0.8, 0.24, 1), background 0.2s cubic-bezier(0.22, 0.8, 0.24, 1); } .ds-add:hover { background: var(--fill-strong, #e0ded8); } .ds-add:active { transform: scale(0.94); background: var(--fill-strong, #e0ded8); } .ds-add:focus-visible { outline: 2px solid var(--accent, #a8503c); outline-offset: 2px; }"
     },
     {
       "name": "Task Group with Day Strip",
       "kind": "custom",
-      "refersTo": "task-row",
-      "description": "Inset grouped list: featured urgent row with its day strip, then plain rows with right-aligned largest-unit countdowns.",
-      "html": "<section class=\"ds-half\"><div class=\"ds-half-head\"><h2>This month</h2><span>3 jobs</span></div><div class=\"ds-group\"><button class=\"ds-row is-featured\"><span class=\"ds-row-line\"><span class=\"ds-row-copy\"><span class=\"ds-row-name\">HVAC filter</span><span class=\"ds-row-loc\">Hallway</span></span><span class=\"ds-cd\"><span class=\"ds-cd-num\">5</span><span class=\"ds-cd-unit\">days</span></span></span><span class=\"ds-strip\"><i class=\"g\"></i><i class=\"g\"></i><i class=\"g\"></i><i class=\"g\"></i><i class=\"g\"></i><i class=\"g\"></i><i class=\"t\" style=\"--pct:45%\"></i><i></i><i></i><i></i><i></i><i></i></span></button><button class=\"ds-row\"><span class=\"ds-row-line\"><span class=\"ds-row-copy\"><span class=\"ds-row-name\">Smoke alarm test</span><span class=\"ds-row-loc\">Upstairs</span></span><span class=\"ds-cd is-over\"><span class=\"ds-cd-num\">2</span><span class=\"ds-cd-unit\">days over</span></span></span></button><button class=\"ds-row\"><span class=\"ds-row-line\"><span class=\"ds-row-copy\"><span class=\"ds-row-name\">Gutters</span><span class=\"ds-row-loc\">Outside</span></span><span class=\"ds-cd\"><span class=\"ds-cd-num\">3</span><span class=\"ds-cd-unit\">weeks</span></span></span></button></div></section>",
-      "css": ".ds-half { padding: 16px; background: var(--bg); } .ds-half-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 0 4px 8px; } .ds-half-head h2 { margin: 0; font-family: var(--font-num); font-size: 15px; font-weight: 800; font-stretch: 75%; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text); } .ds-half-head span { color: var(--text-2); font-family: var(--font); font-size: 13px; font-variant-numeric: tabular-nums; } .ds-group { overflow: hidden; border-radius: 12px; background: var(--surface); box-shadow: var(--shadow-card); } .ds-row { position: relative; display: block; width: 100%; padding: 11px 16px; border: 0; background: var(--surface); text-align: left; font-family: var(--font); cursor: pointer; transition: background 0.15s var(--ease); } .ds-row + .ds-row::before { content: ''; position: absolute; top: 0; left: 16px; right: 0; height: 0.5px; background: var(--separator-strong); } .ds-row:active { background: var(--surface-2); } .ds-row:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; } .ds-row.is-featured { padding-bottom: 14px; } .ds-row-line { display: flex; align-items: center; justify-content: space-between; gap: 14px; min-height: 42px; } .ds-row-copy { display: flex; flex-direction: column; gap: 2px; min-width: 0; } .ds-row-name { color: var(--text); font-size: 17px; letter-spacing: -0.01em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } .ds-row-loc { color: var(--text-2); font-size: 13px; } .ds-cd { display: inline-flex; align-items: baseline; gap: 4px; white-space: nowrap; } .ds-cd-num { font-family: var(--font-num); font-size: 26px; font-weight: 700; font-stretch: 75%; line-height: 1; font-variant-numeric: tabular-nums; color: var(--text); } .ds-cd-unit { color: var(--text-2); font-size: 13px; font-weight: 500; } .ds-cd.is-over .ds-cd-num, .ds-cd.is-over .ds-cd-unit { color: var(--red); } .ds-strip { display: flex; gap: 3px; margin-top: 10px; } .ds-strip i { width: 9px; height: 9px; border-radius: 1.5px; box-shadow: inset 0 0 0 1px var(--grid); } .ds-strip i.g { box-shadow: none; background: linear-gradient(45deg, transparent 42%, var(--ink-x) 42%, var(--ink-x) 58%, transparent 58%), linear-gradient(-45deg, transparent 42%, var(--ink-x) 42%, var(--ink-x) 58%, transparent 58%); } .ds-strip i.t { padding: 2px; background-clip: content-box; box-shadow: inset 0 0 0 1.5px var(--text); background-image: linear-gradient(90deg, var(--text) min(var(--pct, 0%), 75%), transparent min(var(--pct, 0%), 75%)); }"
+      "refersTo": "task-group",
+      "description": "The signature: a white grouped list, most urgent job first with its day strip, countdowns right-aligned in the largest unit.",
+      "html": "<div class=\"ds-head\">This month <span>3 tasks</span></div><div class=\"ds-group\"><button class=\"ds-row\"><span class=\"ds-line\"><span class=\"ds-copy\"><span class=\"ds-name\">Replace HVAC filter</span><span class=\"ds-loc\">Hallway</span></span><span class=\"ds-cd\"><b>5</b> days</span></span><span class=\"ds-strip\"><i class=\"g\"></i><i class=\"g\"></i><i class=\"g\"></i><i class=\"g\"></i><i class=\"g\"></i><i class=\"g\"></i><i class=\"g\"></i><i class=\"t\"></i><i></i><i></i><i></i><i></i><i></i></span></button><button class=\"ds-row\"><span class=\"ds-line\"><span class=\"ds-copy\"><span class=\"ds-name\">Test smoke alarms</span><span class=\"ds-loc\">Upstairs</span></span><span class=\"ds-cd is-over\"><b>2</b> days over</span></span></button><button class=\"ds-row\"><span class=\"ds-line\"><span class=\"ds-copy\"><span class=\"ds-name\">Clean gutters</span><span class=\"ds-loc\">Outside</span></span><span class=\"ds-cd\"><b>3</b> weeks</span></span></button></div>",
+      "css": ".ds-head { display: flex; justify-content: space-between; padding: 0 4px 8px; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 15px; font-weight: 600; letter-spacing: -0.01em; color: var(--text-2, #6b665f); } .ds-head span { font-size: 13px; font-weight: 400; font-variant-numeric: tabular-nums; } .ds-group { overflow: hidden; border-radius: 12px; background: var(--surface, #ffffff); box-shadow: 0 1px 2px rgba(22, 21, 20, 0.04); } .ds-row { position: relative; display: block; width: 100%; padding: 11px 16px; border: 0; background: var(--surface, #ffffff); text-align: left; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; cursor: pointer; transition: background 0.15s cubic-bezier(0.22, 0.8, 0.24, 1); } .ds-row + .ds-row::before { content: ''; position: absolute; top: 0; left: 16px; right: 0; height: 0.5px; background: var(--separator-strong, rgba(22, 21, 20, 0.13)); } .ds-row:hover, .ds-row:active { background: var(--surface-2, #f8f7f4); } .ds-row:focus-visible { outline: 2px solid var(--accent, #a8503c); outline-offset: -2px; } .ds-line { display: flex; align-items: center; justify-content: space-between; gap: 14px; min-height: 42px; } .ds-copy { display: flex; flex-direction: column; gap: 2px; min-width: 0; } .ds-name { color: var(--text, #2b2926); font-size: 17px; letter-spacing: -0.01em; } .ds-loc { color: var(--text-2, #6b665f); font-size: 13px; } .ds-cd { display: inline-flex; align-items: baseline; gap: 4px; white-space: nowrap; color: var(--text-2, #6b665f); font-size: 15px; font-weight: 500; } .ds-cd b { color: var(--text, #2b2926); font-size: 20px; font-weight: 600; letter-spacing: -0.01em; line-height: 1; font-variant-numeric: tabular-nums; } .ds-cd.is-over, .ds-cd.is-over b { color: var(--red, #a8503c); } .ds-strip { display: flex; gap: 3px; margin-top: 10px; padding-bottom: 3px; } .ds-strip i { width: 9px; height: 9px; border-radius: 1.5px; box-shadow: inset 0 0 0 1px var(--grid, #dedad3); } .ds-strip i.g { box-shadow: none; background: linear-gradient(45deg, transparent 42%, var(--ink-x, #9a958d) 42%, var(--ink-x, #9a958d) 58%, transparent 58%), linear-gradient(-45deg, transparent 42%, var(--ink-x, #9a958d) 42%, var(--ink-x, #9a958d) 58%, transparent 58%); } .ds-strip i.t { padding: 2px; background-clip: content-box; box-shadow: inset 0 0 0 1.5px var(--text, #2b2926); background-image: linear-gradient(90deg, var(--text, #2b2926) 45%, transparent 45%); }"
     },
     {
       "name": "Search Field",
       "kind": "input",
       "refersTo": "search-field",
-      "description": "Fill-coloured search field that turns to paper with a red ring on focus.",
-      "html": "<label class=\"ds-search\"><svg width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\"><circle cx=\"11\" cy=\"11\" r=\"6.5\"/><path d=\"m20 20-4.4-4.4\"/></svg><input type=\"search\" placeholder=\"Search tasks\"></label>",
-      "css": ".ds-search { display: flex; align-items: center; gap: 8px; height: 44px; padding: 0 12px; border-radius: 13px; background: var(--fill); border: 1px solid transparent; color: var(--text-3); transition: background 0.18s var(--ease), border-color 0.18s var(--ease); } .ds-search:focus-within { background: var(--surface); border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); } .ds-search input { flex: 1; min-width: 0; height: 100%; border: 0; outline: 0; background: transparent; color: var(--text); font-family: var(--font); font-size: 16px; -webkit-appearance: none; appearance: none; } .ds-search input::placeholder { color: var(--text-3); }"
+      "description": "Fill capsule that turns white with a brick border and soft halo on focus.",
+      "html": "<label class=\"ds-search\"><svg width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"11\" cy=\"11\" r=\"7\"/><path d=\"m20 20-3.2-3.2\"/></svg><input type=\"search\" placeholder=\"Search tasks\"></label>",
+      "css": ".ds-search { display: flex; align-items: center; gap: 8px; height: 44px; padding: 0 12px; border-radius: 13px; background: var(--fill, #ecebe7); border: 1px solid transparent; color: var(--text-3, #716c65); transition: background 0.18s cubic-bezier(0.22, 0.8, 0.24, 1), border-color 0.18s cubic-bezier(0.22, 0.8, 0.24, 1); } .ds-search:hover { background: var(--fill-strong, #e0ded8); } .ds-search:focus-within { background: var(--surface, #ffffff); border-color: var(--accent, #a8503c); box-shadow: 0 0 0 3px var(--accent-soft, #f5e8e3); } .ds-search input { flex: 1; min-width: 0; height: 100%; border: 0; outline: 0; background: transparent; color: var(--text, #2b2926); font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 16px; } .ds-search input::placeholder { color: var(--text-3, #716c65); }"
     },
     {
-      "name": "Form Field Group",
+      "name": "Form Field Group with Interval Chips",
       "kind": "input",
-      "refersTo": "task-group",
-      "description": "Grouped form fields: small label over a borderless 17px input; focus draws a red underline.",
-      "html": "<div class=\"ds-form-group\"><label class=\"ds-field\"><span class=\"ds-label\">Name</span><input class=\"ds-input\" value=\"HVAC filter\"></label><label class=\"ds-field\"><span class=\"ds-label\">Location</span><input class=\"ds-input\" placeholder=\"Hallway\"></label></div>",
-      "css": ".ds-form-group { overflow: hidden; border-radius: 12px; background: var(--surface); border: 0.5px solid var(--separator); } .ds-field { position: relative; display: block; padding: 12px 14px; } .ds-field + .ds-field::before { content: ''; position: absolute; top: 0; left: 14px; right: 0; height: 0.5px; background: var(--separator); } .ds-label { display: block; margin-bottom: 7px; color: var(--text-2); font-family: var(--font); font-size: 11.5px; font-weight: 550; letter-spacing: 0.005em; } .ds-input { display: block; width: 100%; min-height: 36px; padding: 6px 0; border: 0; border-radius: 0; outline: 0; background: transparent; caret-color: var(--accent); color: var(--text); font-family: var(--font); font-size: 17px; line-height: 1.3; transition: box-shadow 0.16s var(--ease); } .ds-input:focus { box-shadow: inset 0 -1.5px 0 var(--accent); } .ds-input::placeholder { color: var(--text-3); }"
-    },
-    {
-      "name": "Interval Chips",
-      "kind": "chip",
-      "refersTo": "chip",
-      "description": "Preset choices in the task form; the selected chip is printed red.",
-      "html": "<div class=\"ds-chips\"><button class=\"ds-chip\">1 month</button><button class=\"ds-chip is-active\">3 months</button><button class=\"ds-chip\">6 months</button><button class=\"ds-chip\">1 year</button></div>",
-      "css": ".ds-chips { display: flex; flex-wrap: wrap; gap: 6px; } .ds-chip { display: inline-flex; align-items: center; justify-content: center; min-height: 36px; padding: 0 11px; border: 0; border-radius: 10px; background: var(--fill); color: var(--text-2); font-family: var(--font); font-size: 11.5px; font-weight: 550; font-variant-numeric: tabular-nums; cursor: pointer; transition: background 0.16s var(--ease), color 0.16s var(--ease); } .ds-chip:active { opacity: 0.75; } .ds-chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; } .ds-chip.is-active { background: var(--accent); color: var(--on-accent); }"
+      "refersTo": "form-chip",
+      "description": "Borderless fields inside a white group, brick underline on focus; interval preset chips.",
+      "html": "<div class=\"ds-form\"><label class=\"ds-field\"><span class=\"ds-label\">Name</span><input class=\"ds-input\" value=\"Replace HVAC filter\"></label><div class=\"ds-field\"><span class=\"ds-label\">Repeat every</span><div class=\"ds-chips\"><button class=\"ds-chip\">1 month</button><button class=\"ds-chip is-active\">3 months</button><button class=\"ds-chip\">6 months</button><button class=\"ds-chip\">1 year</button></div></div></div>",
+      "css": ".ds-form { overflow: hidden; border-radius: 12px; background: var(--surface, #ffffff); border: 0.5px solid var(--separator, rgba(22, 21, 20, 0.08)); font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; } .ds-field { position: relative; display: block; padding: 12px 14px; } .ds-field + .ds-field::before { content: ''; position: absolute; top: 0; left: 14px; right: 0; height: 0.5px; background: var(--separator, rgba(22, 21, 20, 0.08)); } .ds-label { display: block; margin-bottom: 7px; color: var(--text-2, #6b665f); font-size: 13px; font-weight: 550; } .ds-input { display: block; width: 100%; min-height: 36px; padding: 6px 0; border: 0; outline: 0; background: transparent; caret-color: var(--accent, #a8503c); color: var(--text, #2b2926); font: inherit; font-size: 17px; transition: box-shadow 0.16s cubic-bezier(0.22, 0.8, 0.24, 1); } .ds-input:focus { box-shadow: inset 0 -1.5px 0 var(--accent, #a8503c); } .ds-chips { display: flex; flex-wrap: wrap; gap: 6px; } .ds-chip { min-height: 36px; padding: 0 11px; border: 0; border-radius: 10px; background: var(--fill, #ecebe7); color: var(--text-2, #6b665f); font: inherit; font-size: 13px; font-weight: 550; font-variant-numeric: tabular-nums; cursor: pointer; transition: background 0.16s cubic-bezier(0.22, 0.8, 0.24, 1), color 0.16s cubic-bezier(0.22, 0.8, 0.24, 1); } .ds-chip:hover { background: var(--fill-strong, #e0ded8); } .ds-chip:active { opacity: 0.75; } .ds-chip:focus-visible { outline: 2px solid var(--accent, #a8503c); outline-offset: 2px; } .ds-chip.is-active { background: var(--accent, #a8503c); color: var(--on-accent, #ffffff); }"
     },
     {
       "name": "Segmented Control",
       "kind": "chip",
       "refersTo": "segmented",
-      "description": "Native-style segmented control used for theme and view choices.",
-      "html": "<div class=\"ds-seg\"><button>System</button><button class=\"is-active\">Light</button><button>Dark</button></div>",
-      "css": ".ds-seg { display: flex; gap: 2px; height: 48px; padding: 2px; border-radius: 12px; background: var(--fill); } .ds-seg button { flex: 1 1 0; min-height: 44px; padding: 0 8px; border: 0; border-radius: 9px; background: transparent; color: var(--text-2); font-family: var(--font); font-size: 12.5px; font-weight: 550; cursor: pointer; transition: background 0.2s var(--ease), color 0.2s var(--ease); } .ds-seg button.is-active { background: var(--segment-active-bg); color: var(--segment-active-text); font-weight: 650; box-shadow: 0 1px 2px rgba(22,21,20,0.09), 0 0 0 0.5px rgba(22,21,20,0.04); } .ds-seg button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }"
+      "description": "iOS segmented control for theme choice.",
+      "html": "<div class=\"ds-seg\" role=\"radiogroup\"><button class=\"is-active\">System</button><button>Light</button><button>Dark</button></div>",
+      "css": ".ds-seg { display: flex; gap: 2px; height: 48px; padding: 2px; border-radius: 12px; background: var(--fill, #ecebe7); } .ds-seg button { flex: 1; min-height: 44px; border: 0; border-radius: 9px; background: transparent; color: var(--text-2, #6b665f); font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 12.5px; font-weight: 550; cursor: pointer; transition: background 0.2s cubic-bezier(0.22, 0.8, 0.24, 1), color 0.2s cubic-bezier(0.22, 0.8, 0.24, 1), box-shadow 0.2s cubic-bezier(0.22, 0.8, 0.24, 1); } .ds-seg button:hover { color: var(--text, #2b2926); } .ds-seg button:focus-visible { outline: 2px solid var(--accent, #a8503c); outline-offset: 2px; } .ds-seg button.is-active { background: var(--segment-active-bg, #ffffff); color: var(--segment-active-text, #161514); font-weight: 650; box-shadow: 0 1px 2px rgba(22, 21, 20, 0.09), 0 0 0 0.5px rgba(22, 21, 20, 0.04); }"
     },
     {
       "name": "Tab Bar",
       "kind": "nav",
-      "refersTo": "tab-item",
-      "description": "Native bottom tab bar; active tab in calendar red with an overdue badge.",
-      "html": "<nav class=\"ds-tabs\"><button class=\"ds-tab is-active\"><span class=\"ds-tab-glyph\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"4\" y=\"5\" width=\"16\" height=\"15\" rx=\"2.5\"/><path d=\"M4 9.5h16M8 3v4M16 3v4\"/></svg><span class=\"ds-badge\">2</span></span><span class=\"ds-tab-label\">Tasks</span></button><button class=\"ds-tab\"><span class=\"ds-tab-glyph\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\"><path d=\"M5 7h14M5 12h14M5 17h9\"/></svg></span><span class=\"ds-tab-label\">Schedule</span></button><button class=\"ds-tab\"><span class=\"ds-tab-glyph\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\"><path d=\"M6 19V11M12 19V6M18 19v-5\"/></svg></span><span class=\"ds-tab-label\">Insights</span></button><button class=\"ds-tab\"><span class=\"ds-tab-glyph\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\"><circle cx=\"12\" cy=\"12\" r=\"3\"/><circle cx=\"12\" cy=\"12\" r=\"8\"/></svg></span><span class=\"ds-tab-label\">Settings</span></button></nav>",
-      "css": ".ds-tabs { display: flex; gap: 2px; padding: 5px 8px 4px; background: var(--bar-bg); border-top: 0.5px solid var(--separator-strong); } .ds-tab { flex: 1 1 0; min-height: 49px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; padding: 4px 2px 3px; border: 0; border-radius: 12px; background: transparent; color: var(--text-3); cursor: pointer; transition: color 0.18s var(--ease), transform 0.18s var(--ease); } .ds-tab:active { transform: scale(0.95); } .ds-tab:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; } .ds-tab.is-active { color: var(--accent); } .ds-tab-glyph { position: relative; display: flex; align-items: center; height: 25px; } .ds-tab-label { font-family: var(--font); font-size: 10px; font-weight: 600; letter-spacing: 0.005em; line-height: 1.1; } .ds-badge { position: absolute; top: -5px; left: 11px; display: grid; place-items: center; min-width: 17px; height: 17px; padding: 0 4px; border-radius: 9px; background: var(--red); color: #fff; font-family: var(--font); font-size: 10px; font-weight: 700; line-height: 1; box-shadow: 0 0 0 2px var(--surface); }"
+      "refersTo": "tab-bar",
+      "description": "Four-item bottom tab bar; brick marks the active tab, the only badge counts overdue tasks.",
+      "html": "<nav class=\"ds-tabs\"><button class=\"ds-tab is-active\"><span class=\"ds-glyph\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 6h16M7 12h10M10 18h4\"/></svg><span class=\"ds-badge\">2</span></span><span>Tasks</span></button><button class=\"ds-tab\"><span class=\"ds-glyph\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"3\" y=\"5\" width=\"18\" height=\"16\" rx=\"3\"/><path d=\"M8 3v4M16 3v4M3 10h18\"/></svg></span><span>Schedule</span></button><button class=\"ds-tab\"><span class=\"ds-glyph\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 20v-6M12 20V6M19 20v-9\"/><path d=\"M3 20h18\"/></svg></span><span>Insights</span></button><button class=\"ds-tab\"><span class=\"ds-glyph\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1.03 1.56V21a2 2 0 1 1-4 0v-.09a1.7 1.7 0 0 0-1.12-1.56 1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1.56-1.03H3a2 2 0 1 1 0-4h.09A1.7 1.7 0 0 0 4.6 8.85a1.7 1.7 0 0 0-.34-1.87l-.06-.06A2 2 0 1 1 7.03 4.1l.06.06a1.7 1.7 0 0 0 1.87.34H9a1.7 1.7 0 0 0 1.03-1.56V3a2 2 0 1 1 4 0v.09a1.7 1.7 0 0 0 1.03 1.56 1.7 1.7 0 0 0 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.7 1.7 0 0 0-.34 1.87V9a1.7 1.7 0 0 0 1.56 1.03H21a2 2 0 1 1 0 4h-.09A1.7 1.7 0 0 0 19.4 15Z\"/></svg></span><span>Settings</span></button></nav>",
+      "css": ".ds-tabs { display: flex; gap: 2px; padding: 5px 8px 4px; background: var(--bar-bg, #ffffff); border-top: 0.5px solid var(--separator-strong, rgba(22, 21, 20, 0.13)); font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; } .ds-tab { flex: 1; min-height: 49px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; border: 0; border-radius: 12px; background: transparent; color: var(--text-3, #716c65); font-size: 10px; font-weight: 600; letter-spacing: 0.005em; cursor: pointer; transition: color 0.18s cubic-bezier(0.22, 0.8, 0.24, 1), transform 0.18s cubic-bezier(0.22, 0.8, 0.24, 1); } .ds-tab:hover { color: var(--text-2, #6b665f); } .ds-tab:active { transform: scale(0.95); } .ds-tab:focus-visible { outline: 2px solid var(--accent, #a8503c); outline-offset: 2px; } .ds-tab.is-active { color: var(--accent, #a8503c); } .ds-glyph { position: relative; display: flex; height: 25px; align-items: center; } .ds-badge { position: absolute; top: -5px; left: 11px; display: grid; place-items: center; min-width: 17px; height: 17px; padding: 0 4px; border-radius: 9px; background: var(--red, #a8503c); color: var(--on-accent, #ffffff); font-size: 10px; font-weight: 700; line-height: 1; box-shadow: 0 0 0 2px var(--surface, #ffffff); }"
     },
     {
       "name": "Alert",
-      "kind": "card",
+      "kind": "custom",
       "refersTo": "alert",
-      "description": "Native-feeling centred alert; the one translucent surface.",
-      "html": "<div class=\"ds-alert\"><div class=\"ds-alert-body\"><h2>Delete task?</h2><p>Its completion history will be removed from this phone.</p></div><div class=\"ds-alert-actions\"><button>Cancel</button><button class=\"is-destructive\">Delete</button></div></div>",
-      "css": ".ds-alert { width: min(100%, 298px); overflow: hidden; border-radius: 16px; background: color-mix(in srgb, var(--surface) 94%, transparent); -webkit-backdrop-filter: blur(28px) saturate(180%); backdrop-filter: blur(28px) saturate(180%); box-shadow: 0 24px 70px rgba(0,0,0,0.32); font-family: var(--font); } .ds-alert-body { padding: 19px 17px 17px; text-align: center; } .ds-alert-body h2 { margin: 0; color: var(--text); font-size: 16.5px; font-weight: 650; line-height: 1.3; letter-spacing: -0.02em; } .ds-alert-body p { margin: 5px 0 0; color: var(--text-2); font-size: 12.5px; line-height: 1.45; } .ds-alert-actions { display: flex; border-top: 0.5px solid var(--separator-strong); } .ds-alert-actions button { flex: 1 1 0; min-height: 46px; border: 0; background: transparent; color: var(--accent); font-family: var(--font); font-size: 16px; font-weight: 550; cursor: pointer; } .ds-alert-actions button + button { border-left: 0.5px solid var(--separator-strong); } .ds-alert-actions button:active { background: var(--fill); } .ds-alert-actions button:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; } .ds-alert-actions .is-destructive { color: var(--red); font-weight: 650; }"
+      "description": "Native-feeling centred alert with hairline-split actions; destructive in brick.",
+      "html": "<div class=\"ds-alert\" role=\"alertdialog\"><div class=\"ds-alert-body\"><h2>Delete this task?</h2><p>Its completion history will be removed. This can’t be undone.</p></div><div class=\"ds-alert-actions\"><button>Cancel</button><button class=\"is-destructive\">Delete</button></div></div>",
+      "css": ".ds-alert { width: min(100%, 298px); overflow: hidden; border-radius: 16px; background: color-mix(in srgb, var(--surface, #ffffff) 94%, transparent); -webkit-backdrop-filter: blur(28px) saturate(180%); backdrop-filter: blur(28px) saturate(180%); box-shadow: 0 24px 70px rgba(0, 0, 0, 0.32); font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; } .ds-alert-body { padding: 19px 17px 17px; text-align: center; } .ds-alert h2 { margin: 0; color: var(--text, #2b2926); font-size: 16.5px; font-weight: 650; line-height: 1.3; letter-spacing: -0.02em; } .ds-alert p { margin: 5px 0 0; color: var(--text-2, #6b665f); font-size: 12.5px; line-height: 1.45; } .ds-alert-actions { display: flex; border-top: 0.5px solid var(--separator-strong, rgba(22, 21, 20, 0.13)); } .ds-alert-actions button { flex: 1; min-height: 46px; border: 0; background: transparent; color: var(--accent, #a8503c); font: inherit; font-size: 16px; font-weight: 550; cursor: pointer; } .ds-alert-actions button + button { border-left: 0.5px solid var(--separator-strong, rgba(22, 21, 20, 0.13)); } .ds-alert-actions button:hover, .ds-alert-actions button:active { background: var(--fill, #ecebe7); } .ds-alert-actions button:focus-visible { outline: 2px solid var(--accent, #a8503c); outline-offset: -2px; } .ds-alert-actions .is-destructive { color: var(--red, #a8503c); font-weight: 650; }"
     }
   ],
   "narrative": {
-    "northStar": "The Kitchen Wall Calendar",
-    "overview": "Replacely is a wall calendar by the fridge, printed on paper and laid out the way iPhone lays out Settings. The structure is Apple's: one large title, inset grouped lists of white rows on a light grey ground, hairline separators, a native bottom tab bar, sheets that slide up from the bottom. The material is calendar stock. A printed red band carries the month and the page title in condensed capitals. The ink is warm near-black. The rules are warm grey. Done is holiday green. Every number is printed in one condensed numeral face, the way a calendar prints its dates.\n\nThe screen stays calm. A row states each fact once: name, location, and a countdown in the largest whole unit (\"3 months\", \"5 days\", \"Today\", \"2 days over\"), right-aligned in condensed numerals. The most urgent job gets one extra element, a strip of day squares: days gone by are crossed off, today's square fills as the day passes, and days past due turn red. Red is reserved for the band, overdue, and primary actions, so overdue reads instantly.\n\nDark mode is the same calendar printed on charcoal stock. The red band deepens, accents lighten so they stay legible, and the structure does not change. The build rejects the category default: no dark glass cards, no mint accents, no progress rings, no metric tiles, no second-by-second timers.",
+    "northStar": "The Quiet Wall Calendar",
+    "overview": "Replacely is the calendar by the fridge, reduced to the one thing it is good at: crossing days off until a job comes due. It is laid out the way iOS lays out Settings: a plain page title, inset grouped lists of white rows on a warm grey ground, hairline separators, a bottom tab bar, and sheets that slide up from below. The calendar survives in two places only: the countdown, set as the largest whole unit (\"3 months\", \"5 days\", \"Today\", \"2 days over\"), and a strip of tiny day squares on the single most urgent job.\n\nDensity is low and the voice is soft. Everything is the system font. Hierarchy comes from size and a narrow range of weights, never from capitals, colour blocks or ornament. There is one accent, a muted brick, and it is spent sparingly: the add button, the active tab, primary actions, selected chips and anything overdue. Neutrals are warm (a hint of yellow in every grey) and contrast is gentle: ink is a soft near-black, the page is never pure white, and dark mode is warm charcoal rather than black.\n\nThis system replaced an earlier build with a printed red header band, a condensed self-hosted numeral face and all-caps headings. Those are retired; nothing here should bring them back.",
     "keyCharacteristics": [
-      "Apple inset grouped lists (12px corners) of white rows on a light warm-grey ground, divided by hairline separators.",
-      "A solid printed-red header band with condensed capital titles, and no glass.",
-      "One condensed numeral face (Archivo, 72-75% width) for every count; system SF for all text.",
-      "Countdowns show the largest whole unit only, never hours, minutes or seconds.",
-      "The day strip appears on the most urgent job only.",
-      "Light and dark are one calendar on two paper stocks."
+      "Apple grouped-list structure: plain page title, white inset groups (12px corners), hairline separators inset 16px.",
+      "System font only, with tabular numerals for every count.",
+      "Warm neutral palette with one muted brick accent; green only for done, amber only for due soon.",
+      "Countdowns in the largest whole unit; the day strip only on the most urgent job.",
+      "Flat at rest: a 1px whisper shadow under groups, real depth only for sheets, alerts and toasts.",
+      "Quiet motion: short eased fades and scale-on-press, no bounce, all of it switched off under reduced motion."
     ],
     "rules": [
-      { "name": "The Printed Red Rule", "body": "Red means one of three things: the band, overdue, or the one primary action on screen. A red element that is none of these is a bug.", "section": "colors" },
-      { "name": "The Green Is Done Rule", "body": "Holiday green appears only once a job is done or a setting is on. Nothing else is printed green.", "section": "colors" },
-      { "name": "The Ink Charts Rule", "body": "Insights charts are drawn in Crossed Ink on Fill tracks. Categories are told apart by their labels, not by hue.", "section": "colors" },
-      { "name": "The One Numeral Face Rule", "body": "Every count, date number and section head uses Archivo at one of the fixed sizes above (64, 40, 26 or 15px) and a width of 72-75%. Sentences never use Archivo, and numbers never use SF at display size.", "section": "typography" },
-      { "name": "The Largest Unit Rule", "body": "A countdown shows one number and one unit, the largest whole unit that fits. It never shows hours, minutes or seconds, and it never ticks live.", "section": "typography" },
-      { "name": "The Paper Not Glass Rule", "body": "Content surfaces are opaque paper. Blur and translucency belong only to the scrim and the alert, the two places iOS itself uses them.", "section": "elevation" },
-      { "name": "The Fixed Square Rule", "body": "Every day square is 9px with 1.5px corners in every context. A strip shows at most 25 squares; a longer job shows its last stretch, starting with a short grey dash.", "section": "shapes" }
+      {
+        "name": "The One Brick Rule",
+        "body": "Brick is the only accent, and it marks either the next thing to tap or something overdue. If a screen shows brick on more than a handful of elements, something is decorating.",
+        "section": "colors"
+      },
+      {
+        "name": "The Status Hue Rule",
+        "body": "Green means done, amber means due soon, brick means overdue. None of them is ever used for decoration, category colour or emphasis.",
+        "section": "colors"
+      },
+      {
+        "name": "The No Pure Extremes Rule",
+        "body": "Text is #2b2926, never #000; the page is #f4f3f0, never #fff. Pure white is a surface colour, not a background.",
+        "section": "colors"
+      },
+      {
+        "name": "The Sentence Case Rule",
+        "body": "No text is uppercased, letter-spaced into a label, or set in a second face. Section heads are sentence case at 15px semibold.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tabular Count Rule",
+        "body": "Every number that can change (countdowns, counts, costs, chart values) uses tabular figures so the right edge of a list never jitters.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Big Line Rule",
+        "body": "Each screen has one large line: the page title, or on a detail sheet the countdown. Nothing else goes above 21px.",
+        "section": "typography"
+      },
+      {
+        "name": "The Two Halves Rule",
+        "body": "The task list is always split into \"This month\" and \"Later\", each its own white group, with the most urgent job first. Do not add a third tier, a dashboard summary or metric tiles above them.",
+        "section": "layout"
+      },
+      {
+        "name": "The Float-Only Shadow Rule",
+        "body": "A surface gets more than the group whisper only if it floats above the page and can be dismissed. Rows, groups and buttons in the page stay flat.",
+        "section": "elevation"
+      }
     ],
     "dos": [
-      "Do print counts in Archivo at 72-75% width and the fixed sizes (64 / 40 / 26 / 15px), in tabular figures.",
-      "Do keep each fact once per row: name, location, countdown. Nothing else.",
-      "Do reserve Calendar Red (#c8281d) for the band, overdue states and the single primary action.",
-      "Do use Holiday Green (#1d6b3a) only for done and on states.",
-      "Do build every new list as an inset grouped list: Page White, 12px corners, 0.5px hairlines inset 16px, on Paper Ground.",
-      "Do keep touch targets at least 44px, and honour prefers-reduced-motion (every transition collapses to near zero).",
-      "Do keep the light and dark themes structurally identical; only the paper stock changes."
+      "**Do** build every screen from white inset groups (12px) on Warm Ground (#f4f3f0) with 0.5px separators inset 16px.",
+      "**Do** use the system font for everything, with tabular figures for any number.",
+      "**Do** keep brick (#a8503c light, #df8f7b dark) for the next action and for overdue, and nothing else.",
+      "**Do** show countdowns in the largest whole unit (\"3 months\", \"5 days\", \"Today\", \"2 days over\").",
+      "**Do** keep the day strip to the single most urgent job and the detail sheet.",
+      "**Do** keep controls at 44px or larger, with a visible 2px brick focus outline.",
+      "**Do** keep motion to short eased fades and press-scales on the standard and settle curves, and let reduced motion switch it all off."
     ],
     "donts": [
-      "Don't show hours, minutes or seconds in a countdown, or make it tick live.",
-      "Don't add progress rings, metric tiles, or cards used as page structure.",
-      "Don't put blur or translucency on content surfaces; it belongs to the scrim and the alert only.",
-      "Don't colour-code categories or chart series; charts are printed in Crossed Ink.",
-      "Don't show the day strip on more than the most urgent job (the detail sheet excepted).",
-      "Don't set sentences, labels or body copy in Archivo, or display numerals in SF.",
-      "Don't use mint or teal accents anywhere."
+      "**Don't** bring back the red header band, a coloured title bar, or any full-width colour block behind the title.",
+      "**Don't** add a second typeface, a condensed numeral face, or self-hosted fonts.",
+      "**Don't** uppercase or letter-space text into labels; headings stay sentence case.",
+      "**Don't** use saturated reds, mint, neon or gradients; the old calendar red (#c8281d) is retired.",
+      "**Don't** add decorative icons, icon tiles beside rows, status pills or extra badges; glyphs appear only where they are the control (tabs, add, search, swipe Done).",
+      "**Don't** add dashboard panels, metric tiles, progress rings or live seconds-ticking timers.",
+      "**Don't** use pure black text or a pure white page background.",
+      "**Don't** give in-page rows or groups more than the 1px group whisper shadow, and don't use bounce or overshoot easing."
     ]
   }
 }

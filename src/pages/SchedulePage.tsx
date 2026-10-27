@@ -3,7 +3,6 @@ import { compareUrgency } from '../lib/filters';
 import { Countdown } from '../components/Countdown';
 import { PageTitle } from '../components/PageTitle';
 import { EmptyState } from '../components/EmptyState';
-import { Calendar } from '../components/Icons';
 
 interface SchedulePageProps {
   items: FilterItem[];
@@ -25,11 +24,6 @@ export function SchedulePage({ items, onOpen, onAdd, onShowTutorial }: ScheduleP
       <div className="page">
         <PageTitle subtitle="Everything coming up, in order." />
         <EmptyState
-          art={
-            <span className="empty-round-icon">
-              <Calendar size={30} />
-            </span>
-          }
           title="Nothing scheduled yet"
           body="Once you add a task, its due date appears here — grouped by when it’s due."
           primaryLabel="Add a task"
@@ -99,10 +93,7 @@ export function SchedulePage({ items, onOpen, onAdd, onShowTutorial }: ScheduleP
         </section>
       ))}
 
-      <p className="local-note">
-        <Calendar size={12} />
-        Due dates update as soon as you mark a task done.
-      </p>
+      <p className="local-note">Due dates move forward when you mark a task done.</p>
     </div>
   );
 }

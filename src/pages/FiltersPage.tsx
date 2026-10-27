@@ -3,7 +3,7 @@ import { annualCost, formatCurrency } from '../lib/filters';
 import { PageTitle } from '../components/PageTitle';
 import { EmptyState } from '../components/EmptyState';
 import { FilterCard } from '../components/FilterCard';
-import { Lock, Search, X } from '../components/Icons';
+import { Search, X } from '../components/Icons';
 
 /** Search appears once the list is long enough to need it. */
 const SEARCH_THRESHOLD = 6;
@@ -122,24 +122,15 @@ export function FiltersPage({
             </div>
           )}
 
-          <p className="local-note">
-            <Lock size={12} />
-            Swipe a task left to mark it done. Stored only on this device.
-          </p>
+          <p className="local-note">Swipe a task left to mark it done. Everything stays on this device.</p>
         </>
       )}
 
       {!hasFilters && (
         <EmptyState
-          art={
-            <span className="empty-calendar" aria-hidden="true">
-              <span className="empty-calendar-band" />
-              <span className="empty-calendar-day">1</span>
-            </span>
-          }
-          title="Nothing to track yet"
-          body="Add the jobs your home needs, like filters, cleaning and gutters, and Replacely counts down to each one."
-          primaryLabel="Add your first task"
+          title="Nothing here yet"
+          body="Add the jobs your home needs, like filters or gutters, and Replacely counts down to each one."
+          primaryLabel="Add a task"
           onPrimary={onAdd}
           secondaryLabel="See how Replacely works"
           onSecondary={onShowTutorial}

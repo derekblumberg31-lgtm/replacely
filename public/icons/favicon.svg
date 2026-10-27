@@ -1,20 +1,20 @@
 <svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
   <!-- Replacely: a wall-calendar page. Printed red band, four days crossed off, today filling in red. -->
-  <rect width="1024" height="1024" fill="#ffffff"/>
-  <rect width="1024" height="312" fill="#c8281d"/>
-  <g stroke="#d6d3cc" stroke-width="14">
+  <rect width="1024" height="1024" fill="#f7f6f3"/>
+  <rect width="1024" height="312" fill="#a8503c"/>
+  <g stroke="#dedad3" stroke-width="14">
     <rect x="254" y="499" width="136" height="136" rx="18"/>
     <rect x="444" y="499" width="136" height="136" rx="18"/>
     <rect x="634" y="499" width="136" height="136" rx="18"/>
     <rect x="254" y="689" width="136" height="136" rx="18"/>
     <rect x="634" y="689" width="136" height="136" rx="18"/>
   </g>
-  <g stroke="#161514" stroke-width="28" stroke-linecap="round">
+  <g stroke="#4a4640" stroke-width="28" stroke-linecap="round">
     <path d="M286 531l72 72M358 531l-72 72"/>
     <path d="M476 531l72 72M548 531l-72 72"/>
     <path d="M666 531l72 72M738 531l-72 72"/>
     <path d="M286 721l72 72M358 721l-72 72"/>
   </g>
-  <rect x="444" y="689" width="136" height="136" rx="18" fill="#fbe9e7" stroke="#c8281d" stroke-width="14"/>
-  <path d="M451 696h61v122h-61z" fill="#c8281d"/>
+  <rect x="444" y="689" width="136" height="136" rx="18" fill="#f5e8e3" stroke="#a8503c" stroke-width="14"/>
+  <path d="M451 696h61v122h-61z" fill="#a8503c"/>
 </svg>

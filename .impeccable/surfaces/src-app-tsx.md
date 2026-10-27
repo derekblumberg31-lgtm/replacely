@@ -30,3 +30,8 @@ FIRST VIEWPORT: Red header band: month and year small, page title large in conde
 FORM: Kitchen Wall Calendar, candidate 4 of 7 (seed:0029028735a41445), calmed per user feedback. Raises kept: one fixed day-square size; two hard halves with right-aligned tabular counts; each fact once per row; one numeral face at fixed sizes; today's square fills live. The day strip appears only on the most urgent job.
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
+
+
+## User brief (binding, 2026-10-27; overrides earlier visual choices where they conflict)
+
+Calm, refined, Apple-grade restraint. System font only (SF Pro). Clear hierarchy without oversized or shouting headlines; no all-caps labels, no excessive bolding. Short, natural copy. Warm neutrals, soft grays and one subtle accent; gentle contrast, no harsh black/white or saturated colour. Spacious, consistently aligned layouts; soft borders, subtle shadows, restrained blur. No unnecessary badges, gradients, icons or decoration; no dashboard panels. Quiet, tactile, obvious controls. Subtle transitions, no bounce. Accessible contrast, readable sizes, visible focus, reduced-motion support. Every element earns its place.

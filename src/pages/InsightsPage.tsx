@@ -1,9 +1,8 @@
 import type { FilterItem } from '../lib/filters';
 import { annualCost, formatCurrency } from '../lib/filters';
 import { CATEGORY_META, CATEGORY_ORDER, findType } from '../data/filterTypes';
-import { PageTitle } from '../components/PageTitle';
 import { EmptyState } from '../components/EmptyState';
-import { ChartBar, ChevronRight } from '../components/Icons';
+import { ChevronRight } from '../components/Icons';
 
 interface InsightsPageProps {
   items: FilterItem[];
@@ -16,15 +15,9 @@ export function InsightsPage({ items, now, onAdd, onOpenSettings }: InsightsPage
   if (items.length === 0) {
     return (
       <div className="page">
-        <PageTitle subtitle="Costs, categories and what’s coming up." />
         <EmptyState
-          art={
-            <span className="empty-round-icon">
-              <ChartBar size={30} />
-            </span>
-          }
-          title="No insights yet"
-          body="Add a few tasks with their costs and Replacely will estimate your yearly spend and show upcoming months."
+          title="No costs yet"
+          body="Add a task with its cost and you’ll see what upkeep runs each year."
           primaryLabel="Add a task"
           onPrimary={onAdd}
           compact

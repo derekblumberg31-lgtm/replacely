@@ -1,17 +1,6 @@
 import { useRef, type ChangeEvent } from 'react';
 import type { Settings, ThemePreference } from '../types';
-import {
-  Bell,
-  BookOpen,
-  ChevronRight,
-  CircleCheck,
-  Download,
-  Info,
-  Lock,
-  Share,
-  Trash2,
-  Upload,
-} from '../components/Icons';
+import { ChevronRight, CircleCheck } from '../components/Icons';
 
 interface SettingsPageProps {
   settings: Settings;
@@ -62,9 +51,6 @@ export function SettingsPage({
         <div className="settings-group theme-group">
           <div className="theme-group-head">
             <span>Theme</span>
-            <span className="settings-value">
-              {settings.theme === 'system' ? 'Automatic' : settings.theme === 'light' ? 'Light' : 'Dark'}
-            </span>
           </div>
           <div className="segmented theme-segmented" role="radiogroup" aria-label="Theme">
             {THEMES.map((theme) => (
@@ -87,9 +73,6 @@ export function SettingsPage({
         <p className="section-label">Reminders</p>
         <div className="settings-group">
           <div className="settings-row static">
-            <span className="settings-icon">
-              <Bell size={17} />
-            </span>
             <span className="settings-copy">
               <span className="settings-title">
                 {notificationsSupported ? 'Browser reminders' : 'Due badge'}
@@ -123,9 +106,6 @@ export function SettingsPage({
         <div className="settings-group">
           {installed ? (
             <div className="settings-row static">
-              <span className="settings-icon is-success">
-                <CircleCheck size={18} />
-              </span>
               <span className="settings-copy">
                 <span className="settings-title">Installed on this device</span>
                 <span className="settings-sub">You’re using Replacely from the Home Screen.</span>
@@ -133,9 +113,6 @@ export function SettingsPage({
             </div>
           ) : (
             <button type="button" className="settings-row" onClick={onOpenInstall}>
-              <span className="settings-icon is-accent">
-                <Share size={18} />
-              </span>
               <span className="settings-copy">
                 <span className="settings-title">Add to Home Screen</span>
                 <span className="settings-sub">Full screen, with your tasks saved on the device.</span>
@@ -145,8 +122,7 @@ export function SettingsPage({
           )}
         </div>
         <p className="settings-footnote">
-          Offline use needs an HTTPS address. A plain local Wi-Fi address installs as a web clip that needs the Mac
-          nearby.
+          To use it offline, install it from an https address.
         </p>
       </section>
 
@@ -154,9 +130,6 @@ export function SettingsPage({
         <p className="section-label">Help</p>
         <div className="settings-group">
           <button type="button" className="settings-row" onClick={onOpenTutorial}>
-            <span className="settings-icon">
-              <BookOpen size={18} />
-            </span>
             <span className="settings-copy">
               <span className="settings-title">How Replacely works</span>
               <span className="settings-sub">A short guide to tasks, countdowns and installing.</span>
@@ -170,9 +143,6 @@ export function SettingsPage({
         <p className="section-label">Your data</p>
         <div className="settings-group">
           <button type="button" className="settings-row" onClick={onExport}>
-            <span className="settings-icon">
-              <Download size={17} />
-            </span>
             <span className="settings-copy">
               <span className="settings-title">Export backup</span>
               <span className="settings-sub">Save a JSON copy of every task and its history.</span>
@@ -180,9 +150,6 @@ export function SettingsPage({
             <ChevronRight size={17} className="chevron" />
           </button>
           <button type="button" className="settings-row" onClick={() => fileInput.current?.click()}>
-            <span className="settings-icon">
-              <Upload size={17} />
-            </span>
             <span className="settings-copy">
               <span className="settings-title">Import backup</span>
               <span className="settings-sub">Replace the tasks in this app with a backup.</span>
@@ -202,9 +169,6 @@ export function SettingsPage({
         <p className="section-label">About</p>
         <div className="settings-group">
           <div className="settings-row static">
-            <span className="settings-icon">
-              <Info size={17} />
-            </span>
             <span className="settings-copy">
               <span className="settings-title">Replacely</span>
               <span className="settings-sub">Version 2.0 · Household reminder app</span>
@@ -212,9 +176,6 @@ export function SettingsPage({
             <span className="settings-value">2.0</span>
           </div>
           <div className="settings-row static">
-            <span className="settings-icon">
-              <Lock size={17} />
-            </span>
             <span className="settings-copy">
               <span className="settings-title">Private by design</span>
               <span className="settings-sub">No account, no server, no tracking. Your tasks live in this browser.</span>
@@ -235,9 +196,6 @@ export function SettingsPage({
             onClick={onDeleteAll}
             disabled={filterCount === 0}
           >
-            <span className="settings-icon is-danger">
-              <Trash2 size={17} />
-            </span>
             <span className="settings-copy">
               <span className="settings-title">Delete all tasks</span>
               <span className="settings-sub">Removes every task, note and completion record.</span>

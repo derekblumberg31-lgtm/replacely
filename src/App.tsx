@@ -50,8 +50,8 @@ const TAB_TITLES: Record<TabKey, string> = {
   settings: 'Settings',
 };
 
-/** Browser chrome matches the printed header band. */
-const BAND_COLOR: Record<ResolvedTheme, string> = { light: '#c8281d', dark: '#9e2117' };
+/** Browser chrome matches the page ground. */
+const BAND_COLOR: Record<ResolvedTheme, string> = { light: '#f4f3f0', dark: '#171716' };
 
 export default function App() {
   const [app, setApp] = useState<AppState>(() => loadState() ?? createInitialState());
@@ -368,11 +368,6 @@ export default function App() {
       <header className="app-bar">
         <div className="app-bar-inner">
           <div className="band-copy">
-            {(tab === 'filters' || tab === 'schedule') && (
-              <span className="band-month">
-                {new Date(now).toLocaleDateString(undefined, { month: 'long', year: 'numeric' })}
-              </span>
-            )}
             <h1 className="band-title">{TAB_TITLES[tab]}</h1>
           </div>
           {tab !== 'settings' && (

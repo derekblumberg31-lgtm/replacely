@@ -4,7 +4,7 @@ import { annualCost, daysBetween, formatCurrency, formatDate, formatLifespan, ge
 import { Countdown } from './Countdown';
 import { DayStrip } from './DayStrip';
 import { Sheet } from './Sheet';
-import { CategoryIcon, Check, MapPin, Trash2 } from './Icons';
+import { Check, MapPin, Trash2 } from './Icons';
 
 interface DetailSheetProps {
   filter: Filter;
@@ -39,7 +39,7 @@ export function DetailSheet({ filter, now, onClose, onEdit, onReplace, onDelete 
       }
       footer={
         <div className="detail-actions">
-          <button type="button" className="button button-done button-block" onClick={onReplace}>
+          <button type="button" className="button button-primary button-block" onClick={onReplace}>
             <Check size={18} />
             Mark done
           </button>
@@ -51,9 +51,6 @@ export function DetailSheet({ filter, now, onClose, onEdit, onReplace, onDelete 
       }
     >
       <div className={`detail-head cat-${type.category}`}>
-        <span className="category-icon is-large">
-          <CategoryIcon category={type.category} size={24} />
-        </span>
         <div className="detail-head-copy">
           <h2>{filter.name}</h2>
           <p>
@@ -100,7 +97,6 @@ export function DetailSheet({ filter, now, onClose, onEdit, onReplace, onDelete 
       <section className="detail-section">
         <div className="detail-section-head">
           <p className="section-label">Completion history</p>
-          <span className="detail-history-count">{history.length}</span>
         </div>
         <div className="history-list">
           {history.length === 0 ? (

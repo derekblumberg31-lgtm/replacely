@@ -56,8 +56,8 @@ export default defineConfig({
         orientation: 'portrait',
         lang: 'en',
         categories: ['utilities', 'lifestyle'],
-        background_color: '#f2f2ef',
-        theme_color: '#c8281d',
+        background_color: '#f4f3f0',
+        theme_color: '#f4f3f0',
         icons: [
           { src: at('icons/icon-192.png'), sizes: '192x192', type: 'image/png', purpose: 'any' },
           { src: at('icons/icon-512.png'), sizes: '512x512', type: 'image/png', purpose: 'any' },
@@ -65,7 +65,7 @@ export default defineConfig({
         ],
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,svg,png,webmanifest,woff2}'],
+        globPatterns: ['**/*.{js,css,html,svg,png,webmanifest}'],
         navigateFallback: at('index.html'),
         cleanupOutdatedCaches: true,
         clientsClaim: true,
