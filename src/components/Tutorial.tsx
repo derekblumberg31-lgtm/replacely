@@ -1,0 +1,266 @@
+import { useRef, useState, type PointerEvent } from 'react';
+import { Check, ChevronDown, ChevronRight, RefreshCw, Share, Wind } from './Icons';
+
+interface TutorialProps {
+  installed: boolean;
+  onClose: () => void;
+}
+
+const SLIDES = [
+  {
+    title: 'Every filter, one countdown.',
+    body: 'Add the filters in your home and Filterly keeps a live countdown to each replacement — so nothing runs past its prime.',
+  },
+  {
+    title: 'Set it once, in seconds.',
+    body: 'Pick a type and room, then adjust the typical lifespan if your model differs. Filterly handles the date math.',
+  },
+  {
+    title: 'Replace it. Reset it.',
+    body: 'When you swap a filter, mark it replaced. The countdown starts again and the swap is saved in its history.',
+  },
+  {
+    title: 'Keep it on your Home Screen.',
+    body: 'Open Filterly in Safari, tap Share, then Add to Home Screen. Installed from an HTTPS address, it keeps working offline.',
+  },
+];
+
+function TutorialArt({ step, installed }: { step: number; installed: boolean }) {
+  if (step === 0) {
+    return (
+      <div className="tut-art-inner tut-art-countdown">
+        <span className="tut-orbit" />
+        <div className="tut-mini-card">
+          <div className="tut-mini-top">
+            <span className="tut-mini-icon">
+              <Wind size={16} />
+            </span>
+            <span>HVAC air filter</span>
+            <span className="tut-mini-status">Due soon</span>
+          </div>
+          <p className="tut-mini-name">Hallway return</p>
+          <div className="tut-mini-time">
+            12<span>d</span> 04<span>h</span> 18<span>m</span>
+          </div>
+          <div className="tut-mini-track">
+            <span />
+          </div>
+          <div className="tut-mini-meta">
+            <span>87% used</span>
+            <span>Due Nov 6</span>
+          </div>
+        </div>
+        <div className="tut-floating-chip">
+          <Check size={14} />
+          Countdown live
+        </div>
+      </div>
+    );
+  }
+
+  if (step === 1) {
+    return (
+      <div className="tut-art-inner">
+        <div className="tut-form-card">
+          <div className="tut-form-row">
+            <span>Type</span>
+            <strong>Air purifier HEPA</strong>
+            <ChevronDown size={14} />
+          </div>
+          <div className="tut-form-row">
+            <span>Location</span>
+            <strong>Upstairs bedroom</strong>
+          </div>
+          <div className="tut-form-row">
+            <span>Lifespan</span>
+            <strong>365 days</strong>
+          </div>
+          <div className="tut-form-chips">
+            <span className="is-active">90d</span>
+            <span>180d</span>
+            <span>365d</span>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (step === 2) {
+    return (
+      <div className="tut-art-inner">
+        <span className="tut-refresh">
+          <RefreshCw size={34} />
+        </span>
+        <div className="tut-history-card">
+          <div className="tut-history-row">
+            <span className="tut-history-dot" />
+            <div>
+              <strong>Replaced today</strong>
+              <span>Previous filter ran 90 days</span>
+            </div>
+          </div>
+          <div className="tut-history-row">
+            <span className="tut-history-dot is-muted" />
+            <div>
+              <strong>Replaced Jul 21</strong>
+              <span>Previous filter ran 90 days</span>
+            </div>
+          </div>
+          <div className="tut-history-current">Current filter installed today</div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="tut-art-inner">
+      <div className="tut-home">
+        <div className="tut-home-row">
+          <span className="tut-home-app is-muted" />
+          <span className="tut-home-app is-muted" />
+          <span className="tut-home-app is-muted" />
+        </div>
+        <div className="tut-home-row">
+          <span className="tut-app-wrap">
+            <img className="tut-app-icon" src="/icons/icon-192.png" alt="" />
+            <span className="tut-home-label">Filterly</span>
+          </span>
+          <span className="tut-home-app is-muted" />
+          <span className="tut-home-app is-muted" />
+        </div>
+      </div>
+      <div className="tut-install-pill">
+        {installed ? <Check size={16} /> : <Share size={16} />}
+        {installed ? 'Already installed' : 'Add to Home Screen'}
+      </div>
+    </div>
+  );
+}
+
+export function Tutorial({ installed, onClose }: TutorialProps) {
+  const [index, setIndex] = useState(0);
+  const [drag, setDrag] = useState(0);
+  const [dragging, setDragging] = useState(false);
+  const start = useRef<{ x: number; y: number; horizontal: boolean | null } | null>(null);
+  const lastIndex = SLIDES.length - 1;
+
+  function handlePointerDown(event: PointerEvent<HTMLDivElement>) {
+    if (event.pointerType === 'mouse' && event.button !== 0) return;
+    start.current = { x: event.clientX, y: event.clientY, horizontal: null };
+    setDragging(true);
+    event.currentTarget.setPointerCapture(event.pointerId);
+  }
+
+  function handlePointerMove(event: PointerEvent<HTMLDivElement>) {
+    if (!start.current) return;
+    const dx = event.clientX - start.current.x;
+    const dy = event.clientY - start.current.y;
+    if (start.current.horizontal === null) {
+      if (Math.abs(dx) < 8 && Math.abs(dy) < 8) return;
+      start.current.horizontal = Math.abs(dx) > Math.abs(dy);
+    }
+    if (!start.current.horizontal) return;
+    const atEdge = (index === 0 && dx > 0) || (index === lastIndex && dx < 0);
+    setDrag(atEdge ? dx * 0.28 : Math.max(-120, Math.min(120, dx)));
+  }
+
+  function endDrag(event: PointerEvent<HTMLDivElement>) {
+    if (!start.current) return;
+    if (drag < -48 && index < lastIndex) setIndex(index + 1);
+    else if (drag > 48 && index > 0) setIndex(index - 1);
+    setDrag(0);
+    setDragging(false);
+    start.current = null;
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    }
+  }
+
+  return (
+    <div className="tutorial" role="dialog" aria-modal="true" aria-label="How Filterly works">
+      <div className="tutorial-top">
+        <div className="tutorial-brand">
+          <span className="tutorial-mark">
+            <Wind size={15} />
+          </span>
+          Filterly guide
+        </div>
+        <button type="button" className="tutorial-skip" onClick={onClose}>
+          Skip
+        </button>
+      </div>
+
+      <div
+        className={`tutorial-viewport ${dragging ? 'is-dragging' : ''}`}
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={endDrag}
+        onPointerCancel={endDrag}
+      >
+        <div
+          className="tutorial-track"
+          style={{ transform: `translate3d(calc(${-index * 100}% + ${drag}px), 0, 0)` }}
+        >
+          {SLIDES.map((slide, slideIndex) => (
+            <section
+              className="tutorial-slide"
+              key={slide.title}
+              aria-hidden={slideIndex !== index}
+              role="group"
+              aria-roledescription="slide"
+              aria-label={`${slideIndex + 1} of ${SLIDES.length}`}
+            >
+              <div className="tutorial-art">
+                <TutorialArt step={slideIndex} installed={installed} />
+              </div>
+              <div className="tutorial-copy">
+                <span className="tutorial-step">
+                  {slideIndex + 1} / {SLIDES.length}
+                </span>
+                <h2>{slide.title}</h2>
+                <p>{slide.body}</p>
+                {slideIndex === lastIndex && installed && (
+                  <span className="tutorial-installed">
+                    <Check size={14} />
+                    Filterly is installed on this device.
+                  </span>
+                )}
+              </div>
+            </section>
+          ))}
+        </div>
+      </div>
+
+      <div className="tutorial-footer">
+        <div className="tutorial-dots">
+          {SLIDES.map((slide, dotIndex) => (
+            <button
+              key={slide.title}
+              type="button"
+              className={`tutorial-dot ${dotIndex === index ? 'is-active' : ''}`}
+              aria-label={`Go to page ${dotIndex + 1}`}
+              aria-current={dotIndex === index}
+              onClick={() => setIndex(dotIndex)}
+            />
+          ))}
+        </div>
+        <div className="tutorial-actions">
+          {index > 0 && (
+            <button type="button" className="tutorial-back" onClick={() => setIndex(index - 1)}>
+              Back
+            </button>
+          )}
+          <button
+            type="button"
+            className="button button-primary tutorial-next"
+            onClick={() => (index === lastIndex ? onClose() : setIndex(index + 1))}
+          >
+            {index === lastIndex ? 'Get started' : 'Next'}
+            {index === lastIndex ? <Check size={17} /> : <ChevronRight size={17} />}
+          </button>
+        </div>
+        <p className="tutorial-swipe-hint">Swipe to move between pages</p>
+      </div>
+    </div>
+  );
+}

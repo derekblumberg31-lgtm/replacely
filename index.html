@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Filterly — Filter Tracker</title>
+    <meta
+      name="description"
+      content="Track every filter in your home with a live replacement countdown, locations, history and cost estimates."
+    />
+    <meta name="theme-color" content="#f2f2f7" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Filterly" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="icon" href="/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+    <style>
+      html {
+        background: #f2f2f7;
+      }
+      html[data-theme='dark'] {
+        background: #000000;
+      }
+    </style>
+    <script>
+      try {
+        var v2 = localStorage.getItem('filterly:v2');
+        var v1 = v2 ? null : localStorage.getItem('filterly:v1');
+        var parsed = v2 ? JSON.parse(v2) : v1 ? JSON.parse(v1) : null;
+        var preference = parsed && parsed.settings && parsed.settings.theme;
+        var theme =
+          preference === 'light' || preference === 'dark'
+            ? preference
+            : window.matchMedia('(prefers-color-scheme: dark)').matches
+              ? 'dark'
+              : 'light';
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute('content', theme === 'dark' ? '#000000' : '#f2f2f7');
+      } catch (error) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
