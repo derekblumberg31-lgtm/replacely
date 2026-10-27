@@ -8,20 +8,20 @@ interface TutorialProps {
 
 const SLIDES = [
   {
-    title: 'Every filter, one countdown.',
-    body: 'Add the filters in your home and Filterly keeps a live countdown to each replacement — so nothing runs past its prime.',
+    title: 'Every chore, one countdown.',
+    body: 'Add the jobs your home needs — filters, cleaning, gutters, safety checks — and Replacely counts down to each one.',
   },
   {
     title: 'Set it once, in seconds.',
-    body: 'Pick a type and room, then adjust the typical lifespan if your model differs. Filterly handles the date math.',
+    body: 'Pick what it is and where it is, then tighten or loosen the interval. Replacely handles the date math.',
   },
   {
-    title: 'Replace it. Reset it.',
-    body: 'When you swap a filter, mark it replaced. The countdown starts again and the swap is saved in its history.',
+    title: 'Mark it done. Reset it.',
+    body: 'When the job is done, mark it done. The countdown starts again and that run is saved in its history.',
   },
   {
     title: 'Keep it on your Home Screen.',
-    body: 'Open Filterly in Safari, tap Share, then Add to Home Screen. Installed from an HTTPS address, it keeps working offline.',
+    body: 'Open Replacely in Safari, tap Share, then Add to Home Screen. Installed from an HTTPS address, it keeps working offline.',
   },
 ];
 
@@ -35,10 +35,10 @@ function TutorialArt({ step, installed }: { step: number; installed: boolean }) 
             <span className="tut-mini-icon">
               <Wind size={16} />
             </span>
-            <span>HVAC air filter</span>
+            <span>Clean out dryer vent</span>
             <span className="tut-mini-status">Due soon</span>
           </div>
-          <p className="tut-mini-name">Hallway return</p>
+          <p className="tut-mini-name">Utility room</p>
           <div className="tut-mini-time">
             12<span>d</span> 04<span>h</span> 18<span>m</span>
           </div>
@@ -72,7 +72,7 @@ function TutorialArt({ step, installed }: { step: number; installed: boolean }) 
             <strong>Upstairs bedroom</strong>
           </div>
           <div className="tut-form-row">
-            <span>Lifespan</span>
+            <span>Repeats</span>
             <strong>365 days</strong>
           </div>
           <div className="tut-form-chips">
@@ -95,18 +95,18 @@ function TutorialArt({ step, installed }: { step: number; installed: boolean }) 
           <div className="tut-history-row">
             <span className="tut-history-dot" />
             <div>
-              <strong>Replaced today</strong>
-              <span>Previous filter ran 90 days</span>
+              <strong>Done today</strong>
+              <span>Last time: 90 days</span>
             </div>
           </div>
           <div className="tut-history-row">
             <span className="tut-history-dot is-muted" />
             <div>
-              <strong>Replaced Jul 21</strong>
-              <span>Previous filter ran 90 days</span>
+              <strong>Done Jul 21</strong>
+              <span>Last time: 90 days</span>
             </div>
           </div>
-          <div className="tut-history-current">Current filter installed today</div>
+          <div className="tut-history-current">Started today</div>
         </div>
       </div>
     );
@@ -123,7 +123,7 @@ function TutorialArt({ step, installed }: { step: number; installed: boolean }) 
         <div className="tut-home-row">
           <span className="tut-app-wrap">
             <img className="tut-app-icon" src={`${import.meta.env.BASE_URL}icons/icon-192.png`} alt="" />
-            <span className="tut-home-label">Filterly</span>
+            <span className="tut-home-label">Replacely</span>
           </span>
           <span className="tut-home-app is-muted" />
           <span className="tut-home-app is-muted" />
@@ -177,13 +177,13 @@ export function Tutorial({ installed, onClose }: TutorialProps) {
   }
 
   return (
-    <div className="tutorial" role="dialog" aria-modal="true" aria-label="How Filterly works">
+    <div className="tutorial" role="dialog" aria-modal="true" aria-label="How Replacely works">
       <div className="tutorial-top">
         <div className="tutorial-brand">
           <span className="tutorial-mark">
             <Wind size={15} />
           </span>
-          Filterly guide
+          Replacely guide
         </div>
         <button type="button" className="tutorial-skip" onClick={onClose}>
           Skip
@@ -222,7 +222,7 @@ export function Tutorial({ installed, onClose }: TutorialProps) {
                 {slideIndex === lastIndex && installed && (
                   <span className="tutorial-installed">
                     <Check size={14} />
-                    Filterly is installed on this device.
+                    Replacely is installed on this device.
                   </span>
                 )}
               </div>

@@ -16,7 +16,7 @@ interface FilterFormProps {
 }
 
 export function FilterForm({ initial, locations, onClose, onSave }: FilterFormProps) {
-  const initialType = findType(initial?.typeId ?? 'hvac-1');
+  const initialType = findType(initial?.typeId ?? 'custom');
   const [name, setName] = useState(initial?.name ?? '');
   const [typeId, setTypeId] = useState(initial?.typeId ?? initialType.id);
   const [location, setLocation] = useState(initial?.location ?? '');
@@ -49,7 +49,7 @@ export function FilterForm({ initial, locations, onClose, onSave }: FilterFormPr
     event.preventDefault();
     const nextErrors: Record<string, string> = {};
 
-    if (!name.trim()) nextErrors.name = 'Give this filter a name.';
+    if (!name.trim()) nextErrors.name = 'Give this task a name.';
     if (!location.trim()) nextErrors.location = 'Add the room or spot where it lives.';
     if (!Number.isFinite(lifespanNumber) || lifespanNumber < 1 || lifespanNumber > 3650) {
       nextErrors.lifespan = 'Use a lifespan between 1 and 3,650 days.';
@@ -84,7 +84,7 @@ export function FilterForm({ initial, locations, onClose, onSave }: FilterFormPr
 
   return (
     <Sheet
-      title={initial ? 'Edit filter' : 'New filter'}
+      title={initial ? 'Edit task' : 'New task'}
       onClose={onClose}
       tall
       elevated
@@ -101,7 +101,7 @@ export function FilterForm({ initial, locations, onClose, onSave }: FilterFormPr
     >
       <form id={FORM_ID} ref={formRef} onSubmit={handleSubmit} noValidate>
         <section className="form-section">
-          <p className="form-section-label">The filter</p>
+          <p className="form-section-label">The task</p>
           <div className="form-group">
             <div className={`form-field ${errors.name ? 'has-error' : ''}`}>
               <label className="form-label" htmlFor="filter-name">
@@ -112,7 +112,7 @@ export function FilterForm({ initial, locations, onClose, onSave }: FilterFormPr
                 className="form-input"
                 value={name}
                 onChange={(event) => setName(event.target.value)}
-                placeholder="e.g. Hallway return"
+                placeholder="e.g. Clean the toilets"
                 aria-invalid={Boolean(errors.name)}
                 autoComplete="off"
               />
@@ -143,7 +143,7 @@ export function FilterForm({ initial, locations, onClose, onSave }: FilterFormPr
                 <ChevronDown size={16} />
               </span>
               <span className="form-hint">
-                Typical life: {formatLifespan(type.lifespanDays)} ({type.lifespanDays} days)
+                Typical interval: {formatLifespan(type.lifespanDays)} ({type.lifespanDays} days)
               </span>
             </div>
 
@@ -156,7 +156,7 @@ export function FilterForm({ initial, locations, onClose, onSave }: FilterFormPr
                 className="form-input"
                 value={location}
                 onChange={(event) => setLocation(event.target.value)}
-                placeholder="e.g. Hallway ceiling"
+                placeholder="e.g. Downstairs bathroom"
                 list="filter-location-options"
                 aria-invalid={Boolean(errors.location)}
                 autoComplete="off"
@@ -176,7 +176,7 @@ export function FilterForm({ initial, locations, onClose, onSave }: FilterFormPr
           <div className="form-group">
             <div className={`form-field ${errors.installedAt ? 'has-error' : ''}`}>
               <label className="form-label" htmlFor="filter-installed">
-                Installed on
+                Last done on
               </label>
               <input
                 id="filter-installed"
@@ -192,7 +192,7 @@ export function FilterForm({ initial, locations, onClose, onSave }: FilterFormPr
 
             <div className={`form-field ${errors.lifespan ? 'has-error' : ''}`}>
               <label className="form-label" htmlFor="filter-lifespan">
-                Lifespan
+                Repeat every
               </label>
               <span className="form-suffix-wrap">
                 <input
@@ -231,7 +231,7 @@ export function FilterForm({ initial, locations, onClose, onSave }: FilterFormPr
 
             <div className={`form-field ${errors.cost ? 'has-error' : ''}`}>
               <label className="form-label" htmlFor="filter-cost">
-                Cost per filter <span className="form-optional">Optional</span>
+                Cost each time <span className="form-optional">Optional</span>
               </label>
               <span className="form-prefix-wrap">
                 <span className="form-prefix" aria-hidden="true">
@@ -272,7 +272,7 @@ export function FilterForm({ initial, locations, onClose, onSave }: FilterFormPr
                 rows={3}
                 value={notes}
                 onChange={(event) => setNotes(event.target.value)}
-                placeholder="e.g. 20 × 25 × 1, MERV 11. Spares are above the dryer."
+                placeholder="e.g. Every third Sunday. Spares live under the sink."
               />
             </div>
           </div>
@@ -284,7 +284,7 @@ export function FilterForm({ initial, locations, onClose, onSave }: FilterFormPr
               <Calendar size={18} />
             </span>
             <span className="form-preview-copy">
-              <span className="form-preview-label">Next replacement</span>
+              <span className="form-preview-label">Next due</span>
               <span className="form-preview-date">{formatDate(toDateInput(previewDue))}</span>
             </span>
             <span className="form-preview-pill">{formatLifespan(lifespanNumber)}</span>

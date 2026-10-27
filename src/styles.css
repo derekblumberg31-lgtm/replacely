@@ -1,4 +1,4 @@
-/* Filterly — a local-first, mobile-first filter tracker.
+/* Replacely — a local-first, mobile-first filter tracker.
    Design language: calm, Apple-inspired system UI. No proprietary assets. */
 
 :root {
@@ -503,7 +503,7 @@ a:focus-visible {
   opacity: 0.8;
 }
 
-/* ---------- Filterly home: next-up hero ---------- */
+/* ---------- Replacely home: next-up hero ---------- */
 
 .next-card {
   position: relative;
@@ -1006,6 +1006,26 @@ a:focus-visible {
   --cat-bg: #eef1ee;
 }
 
+.cat-cleaning {
+  --cat-color: #b8375f;
+  --cat-bg: #fbeaf0;
+}
+
+.cat-maintenance {
+  --cat-color: #4b53c9;
+  --cat-bg: #ecedfb;
+}
+
+.cat-outdoor {
+  --cat-color: #2f855a;
+  --cat-bg: #e6f4ec;
+}
+
+.cat-safety {
+  --cat-color: #c2410c;
+  --cat-bg: #fdeee6;
+}
+
 :root[data-theme='dark'] .cat-water {
   --cat-color: #78b9f2;
   --cat-bg: rgba(80, 155, 230, 0.16);
@@ -1029,6 +1049,26 @@ a:focus-visible {
 :root[data-theme='dark'] .cat-other {
   --cat-color: #b3bcb4;
   --cat-bg: rgba(180, 190, 180, 0.12);
+}
+
+:root[data-theme='dark'] .cat-cleaning {
+  --cat-color: #f39ab6;
+  --cat-bg: rgba(200, 80, 120, 0.16);
+}
+
+:root[data-theme='dark'] .cat-maintenance {
+  --cat-color: #a5aef5;
+  --cat-bg: rgba(110, 120, 240, 0.16);
+}
+
+:root[data-theme='dark'] .cat-outdoor {
+  --cat-color: #6fcf9c;
+  --cat-bg: rgba(70, 190, 130, 0.15);
+}
+
+:root[data-theme='dark'] .cat-safety {
+  --cat-color: #f6a97f;
+  --cat-bg: rgba(235, 140, 90, 0.15);
 }
 
 .category-icon,

@@ -21,13 +21,13 @@ export function InstallSheet({ installed, onClose }: InstallSheetProps) {
         <img
           className="install-app-icon"
           src={`${import.meta.env.BASE_URL}icons/icon-192.png`}
-          alt="Filterly app icon"
+          alt="Replacely app icon"
         />
-        <h2>{installed ? 'Filterly is installed' : 'Install Filterly'}</h2>
+        <h2>{installed ? 'Replacely is installed' : 'Install Replacely'}</h2>
         <p>
           {installed
-            ? 'You’re using Filterly from your Home Screen. Your filters stay on this device and the interface runs full screen.'
-            : 'Add Filterly to your iPhone Home Screen for a full-screen app with your filters always a tap away.'}
+            ? 'You’re using Replacely from your Home Screen. Your tasks stay on this device and the interface runs full screen.'
+            : 'Add Replacely to your iPhone Home Screen for a full-screen app with your tasks always a tap away.'}
         </p>
       </div>
 
@@ -44,7 +44,7 @@ export function InstallSheet({ installed, onClose }: InstallSheetProps) {
           <li>
             <span className="install-step-number">1</span>
             <span>
-              <strong>Open Filterly in Safari</strong>
+              <strong>Open Replacely in Safari</strong>
               <small>Add to Home Screen is handled by Safari on iPhone.</small>
             </span>
           </li>
@@ -69,7 +69,7 @@ export function InstallSheet({ installed, onClose }: InstallSheetProps) {
             <span className="install-step-number">4</span>
             <span>
               <strong>Open it from the Home Screen</strong>
-              <small>Filterly opens full screen, without browser toolbars.</small>
+              <small>Replacely opens full screen, without browser toolbars.</small>
             </span>
           </li>
         </ol>
@@ -82,7 +82,7 @@ export function InstallSheet({ installed, onClose }: InstallSheetProps) {
         <div>
           <strong>About offline use</strong>
           <p>
-            A Home Screen app works offline only when Filterly is served over HTTPS. A plain local address such as
+            A Home Screen app works offline only when Replacely is served over HTTPS. A plain local address such as
             <code> http://192.168.x.x </code>
             installs as a web clip, but it still needs your Mac and the same Wi-Fi to open. See the included iPhone
             guide for an HTTPS option.

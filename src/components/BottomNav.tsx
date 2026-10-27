@@ -9,7 +9,7 @@ interface BottomNavProps {
 }
 
 const TABS: { key: TabKey; label: string; Icon: typeof ListFilter }[] = [
-  { key: 'filters', label: 'Filters', Icon: ListFilter },
+  { key: 'filters', label: 'Tasks', Icon: ListFilter },
   { key: 'schedule', label: 'Schedule', Icon: Calendar },
   { key: 'insights', label: 'Insights', Icon: ChartBar },
   { key: 'settings', label: 'Settings', Icon: Settings },

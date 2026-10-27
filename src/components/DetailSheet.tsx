@@ -29,7 +29,7 @@ export function DetailSheet({ filter, now, onClose, onEdit, onReplace, onDelete 
 
   return (
     <Sheet
-      title="Filter"
+      title="Task"
       onClose={onClose}
       tall
       leading={
@@ -46,11 +46,11 @@ export function DetailSheet({ filter, now, onClose, onEdit, onReplace, onDelete 
         <div className="detail-actions">
           <button type="button" className="button button-primary button-block" onClick={onReplace}>
             <RefreshCw size={17} />
-            Mark as replaced
+            Mark done
           </button>
           <button type="button" className="detail-delete" onClick={onDelete}>
             <Trash2 size={15} />
-            Delete filter
+            Delete task
           </button>
         </div>
       }
@@ -72,20 +72,20 @@ export function DetailSheet({ filter, now, onClose, onEdit, onReplace, onDelete 
 
       <section className={`detail-countdown status-${info.status}`}>
         <span className="detail-countdown-label">
-          {overdue ? 'Past the replacement date' : info.daysLeft === 0 ? 'Due today' : `${info.daysLeft} days left`}
+          {overdue ? 'Past due' : info.daysLeft === 0 ? 'Due today' : `${info.daysLeft} days left`}
         </span>
         <Countdown
           ms={overdue ? info.overdueMs : info.remainingMs}
           className={overdue ? 'is-overdue' : ''}
           label={`${overdue ? 'Overdue by' : 'Remaining'}: ${Math.abs(info.daysLeft)} days`}
         />
-        <span className="detail-caption">{overdue ? 'overdue' : 'until replacement'}</span>
+        <span className="detail-caption">{overdue ? 'past due' : 'to go'}</span>
         <div className="progress-track">
           <span className="progress-fill" style={{ width: `${Math.min(100, info.percentUsed)}%` }} />
         </div>
         <div className="detail-dates">
           <div>
-            <span>Installed</span>
+            <span>Started</span>
             <strong>{formatDate(filter.installedAt)}</strong>
           </div>
           <div>
@@ -101,7 +101,7 @@ export function DetailSheet({ filter, now, onClose, onEdit, onReplace, onDelete 
 
       <div className="detail-info">
         <div>
-          <span>Lifespan</span>
+          <span>Repeats</span>
           <strong>
             {filter.lifespanDays} days
             <small>{formatLifespan(filter.lifespanDays)}</small>
@@ -116,7 +116,7 @@ export function DetailSheet({ filter, now, onClose, onEdit, onReplace, onDelete 
           <strong>{runCost > 0 ? formatCurrency(Math.round(runCost)) : '—'}</strong>
         </div>
         <div>
-          <span>Replacements</span>
+          <span>Completions</span>
           <strong>
             {history.length}
             <small>logged</small>
@@ -133,12 +133,12 @@ export function DetailSheet({ filter, now, onClose, onEdit, onReplace, onDelete 
 
       <section className="detail-section">
         <div className="detail-section-head">
-          <p className="section-label">Replacement history</p>
+          <p className="section-label">Completion history</p>
           <span className="detail-history-count">{history.length}</span>
         </div>
         <div className="history-list">
           {history.length === 0 ? (
-            <p className="history-empty">No replacements logged yet. This is the filter’s first cycle.</p>
+            <p className="history-empty">No completions logged yet. This is the first cycle.</p>
           ) : (
             history.map((entry) => {
               const run = daysBetween(entry.previousInstalledAt, entry.replacedAt);
@@ -146,8 +146,8 @@ export function DetailSheet({ filter, now, onClose, onEdit, onReplace, onDelete 
                 <div className="history-item" key={entry.id}>
                   <span className="history-dot" />
                   <div className="history-copy">
-                    <strong>Replaced {formatDate(entry.replacedAt)}</strong>
-                    <span>{run === 0 ? 'Previous filter ran less than a day' : `Previous filter ran ${run} days`}</span>
+                    <strong>Done {formatDate(entry.replacedAt)}</strong>
+                    <span>{run === 0 ? 'Last time: under a day' : `Last time: ${run} days`}</span>
                     {entry.note && <p>{entry.note}</p>}
                   </div>
                 </div>
@@ -155,7 +155,7 @@ export function DetailSheet({ filter, now, onClose, onEdit, onReplace, onDelete 
             })
           )}
         </div>
-        <p className="history-current">Current filter installed {formatDate(filter.installedAt)}</p>
+        <p className="history-current">Started {formatDate(filter.installedAt)}</p>
       </section>
     </Sheet>
   );

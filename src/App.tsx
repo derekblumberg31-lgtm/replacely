@@ -118,9 +118,9 @@ export default function App() {
 
     const names = attention.slice(0, 3).map(({ filter }) => filter.name).join(', ');
     try {
-      new Notification('Filterly — filters need attention', {
-        body: `${attention.length} ${attention.length === 1 ? 'filter is' : 'filters are'} due or overdue: ${names}${attention.length > 3 ? '…' : ''}.`,
-        tag: 'filterly-due',
+      new Notification('Replacely — tasks need attention', {
+        body: `${attention.length} ${attention.length === 1 ? 'task is' : 'tasks are'} due or overdue: ${names}${attention.length > 3 ? '…' : ''}.`,
+        tag: 'replacely-due',
       });
       markReminderSentToday();
     } catch {
@@ -234,7 +234,7 @@ export default function App() {
         ...state,
         filters: state.filters.map((filter) => (filter.id === id ? { ...filter, ...draft } : filter)),
       }));
-      showToast('Filter updated');
+      showToast('Task updated');
     } else {
       const filter: Filter = {
         id: uid(),
@@ -246,7 +246,7 @@ export default function App() {
       setTab('filters');
       setQuery('');
       setFilterTab('all');
-      showToast('Filter added — countdown started');
+      showToast('Task added — countdown started');
     }
     closeForm();
   }
@@ -287,7 +287,7 @@ export default function App() {
     setDetailId(null);
     closeForm();
     setReplaceId(null);
-    showToast('All filters deleted');
+    showToast('All tasks deleted');
   }
 
   function handleExport() {
@@ -300,11 +300,11 @@ export default function App() {
       const text = await file.text();
       const filters = parseBackup(text);
       if (!filters) {
-        showToast('That file isn’t a Filterly backup', 'error');
+        showToast('That file isn’t a Replacely backup', 'error');
         return;
       }
       if (filters.length === 0) {
-        showToast('That backup doesn’t contain any filters', 'error');
+        showToast('That backup doesn’t contain any tasks', 'error');
         return;
       }
       setPendingImport(filters);
@@ -322,7 +322,7 @@ export default function App() {
     setQuery('');
     setFilterTab('all');
     setDetailId(null);
-    showToast(`Imported ${imported.length} ${imported.length === 1 ? 'filter' : 'filters'}`);
+    showToast(`Imported ${imported.length} ${imported.length === 1 ? 'task' : 'tasks'}`);
   }
 
   async function handleToggleReminders(enabled: boolean) {
@@ -363,9 +363,9 @@ export default function App() {
             <span className="brand-mark">
               <Wind size={17} />
             </span>
-            <span className="brand-name">Filterly</span>
+            <span className="brand-name">Replacely</span>
           </div>
-          <button type="button" className="add-button" onClick={openAdd} aria-label="Add filter">
+          <button type="button" className="add-button" onClick={openAdd} aria-label="Add task">
             <Plus size={22} />
           </button>
         </div>
@@ -457,10 +457,10 @@ export default function App() {
 
       {deleting && (
         <IosAlert
-          title="Delete this filter?"
+          title="Delete this task?"
           message={
             <>
-              <strong>{deleting.name}</strong> and its replacement history will be removed. This can’t be undone.
+              <strong>{deleting.name}</strong> and its completion history will be removed. This can’t be undone.
             </>
           }
           confirmLabel="Delete"
@@ -472,11 +472,11 @@ export default function App() {
 
       {pendingImport && (
         <IosAlert
-          title="Replace your filters?"
+          title="Import this backup?"
           message={
             <>
               This backup contains <strong>{pendingImport.length}</strong>{' '}
-              {pendingImport.length === 1 ? 'filter' : 'filters'}. Importing will replace the{' '}
+              {pendingImport.length === 1 ? 'task' : 'tasks'}. Importing will replace the{' '}
               <strong>{app.filters.length}</strong> currently stored here.
             </>
           }
@@ -489,7 +489,7 @@ export default function App() {
       {deleteAllOpen && (
         <IosAlert
           title="Delete everything?"
-          message="Every filter, note and replacement record will be removed from this device. Export a backup first if you might want them back."
+          message="Every task, note and completion record will be removed from this device. Export a backup first if you might want them back."
           confirmLabel="Delete all"
           destructive
           onCancel={() => setDeleteAllOpen(false)}

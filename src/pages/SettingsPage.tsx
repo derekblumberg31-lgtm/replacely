@@ -57,7 +57,7 @@ export function SettingsPage({
 
   return (
     <div className="page">
-      <PageTitle title="Settings" subtitle="Make Filterly feel at home on this device." />
+      <PageTitle title="Settings" subtitle="Make Replacely feel at home on this device." />
 
       <section className="settings-section">
         <p className="section-label">Appearance</p>
@@ -98,8 +98,8 @@ export function SettingsPage({
               </span>
               <span className="settings-sub">
                 {notificationsSupported
-                  ? 'A notification for filters that are due or overdue, checked at most once a day.'
-                  : 'On iPhone, due filters are shown with a badge on the Filters tab. iOS does not let web apps schedule local alerts.'}
+                  ? 'A notification for tasks that are due or overdue, checked at most once a day.'
+                  : 'On iPhone, due tasks are shown with a badge on the Tasks tab. iOS does not let web apps schedule local alerts.'}
               </span>
             </span>
             {notificationsSupported ? (
@@ -130,7 +130,7 @@ export function SettingsPage({
               </span>
               <span className="settings-copy">
                 <span className="settings-title">Installed on this device</span>
-                <span className="settings-sub">You’re using Filterly from the Home Screen.</span>
+                <span className="settings-sub">You’re using Replacely from the Home Screen.</span>
               </span>
             </div>
           ) : (
@@ -140,7 +140,7 @@ export function SettingsPage({
               </span>
               <span className="settings-copy">
                 <span className="settings-title">Add to Home Screen</span>
-                <span className="settings-sub">Full screen, with your filters saved on the device.</span>
+                <span className="settings-sub">Full screen, with your tasks saved on the device.</span>
               </span>
               <ChevronRight size={17} className="chevron" />
             </button>
@@ -160,8 +160,8 @@ export function SettingsPage({
               <BookOpen size={18} />
             </span>
             <span className="settings-copy">
-              <span className="settings-title">How Filterly works</span>
-              <span className="settings-sub">A short guide to filters, countdowns and installing.</span>
+              <span className="settings-title">How Replacely works</span>
+              <span className="settings-sub">A short guide to tasks, countdowns and installing.</span>
             </span>
             <ChevronRight size={17} className="chevron" />
           </button>
@@ -177,7 +177,7 @@ export function SettingsPage({
             </span>
             <span className="settings-copy">
               <span className="settings-title">Export backup</span>
-              <span className="settings-sub">Save a JSON copy of every filter and its history.</span>
+              <span className="settings-sub">Save a JSON copy of every task and its history.</span>
             </span>
             <ChevronRight size={17} className="chevron" />
           </button>
@@ -187,7 +187,7 @@ export function SettingsPage({
             </span>
             <span className="settings-copy">
               <span className="settings-title">Import backup</span>
-              <span className="settings-sub">Replace the filters in this app with a backup.</span>
+              <span className="settings-sub">Replace the tasks in this app with a backup.</span>
             </span>
             <ChevronRight size={17} className="chevron" />
           </button>
@@ -195,8 +195,8 @@ export function SettingsPage({
         </div>
         <p className="settings-footnote">
           {filterCount === 0
-            ? 'No filters stored yet.'
-            : `${filterCount} ${filterCount === 1 ? 'filter is' : 'filters are'} stored in this browser. Export a backup before clearing Safari data or changing phones.`}
+            ? 'No tasks stored yet.'
+            : `${filterCount} ${filterCount === 1 ? 'task is' : 'tasks are'} stored in this browser. Export a backup before clearing Safari data or changing phones.`}
         </p>
       </section>
 
@@ -208,8 +208,8 @@ export function SettingsPage({
               <Info size={17} />
             </span>
             <span className="settings-copy">
-              <span className="settings-title">Filterly</span>
-              <span className="settings-sub">Version 2.0 · Local-first filter tracker</span>
+              <span className="settings-title">Replacely</span>
+              <span className="settings-sub">Version 2.0 · Household reminder app</span>
             </span>
             <span className="settings-value">2.0</span>
           </div>
@@ -219,12 +219,12 @@ export function SettingsPage({
             </span>
             <span className="settings-copy">
               <span className="settings-title">Private by design</span>
-              <span className="settings-sub">No account, no server, no tracking. Your filters live in this browser.</span>
+              <span className="settings-sub">No account, no server, no tracking. Your tasks live in this browser.</span>
             </span>
           </div>
         </div>
         <p className="settings-footnote">
-          Filterly is an independent app. It is not affiliated with Apple Inc. The interface is inspired by familiar
+          Replacely is an independent app. It is not affiliated with Apple Inc. The interface is inspired by familiar
           mobile patterns.
         </p>
       </section>
@@ -241,8 +241,8 @@ export function SettingsPage({
               <Trash2 size={17} />
             </span>
             <span className="settings-copy">
-              <span className="settings-title">Delete all filters</span>
-              <span className="settings-sub">Removes every filter, note and replacement record.</span>
+              <span className="settings-title">Delete all tasks</span>
+              <span className="settings-sub">Removes every task, note and completion record.</span>
             </span>
           </button>
         </div>

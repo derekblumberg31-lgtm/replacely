@@ -1,6 +1,6 @@
-# Filterly — setup
+# Replacely — setup
 
-Everything needed to get Filterly running on this computer and on an iPhone. No accounts, no API keys,
+Everything needed to get Replacely running on this computer and on an iPhone. No accounts, no API keys,
 no environment variables.
 
 ## What you need
@@ -8,7 +8,7 @@ no environment variables.
 - **Node.js 20.19+ or 22.12+** (check: `node -v`). Vite 7 will not run on older versions.
 - **npm** (ships with Node; check: `npm -v`).
 - A **Mac** and an **iPhone** on the **same Wi-Fi network** (not a guest network).
-- Nothing else. Filterly has no backend, no database and no secrets.
+- Nothing else. Replacely has no backend, no database and no secrets.
 
 ## 1. Install
 
@@ -51,7 +51,7 @@ Use the **Network** address on the iPhone. Stop the server with `Ctrl+C`.
    URL into **Safari**.
 3. Wait for it to load (the four-page guide appears the first time).
 4. Tap **Share → Add to Home Screen → Add**.
-5. Open **Filterly** from the Home Screen. It runs full screen.
+5. Open **Replacely** from the Home Screen. It runs full screen.
 
 Never type `localhost` or `127.0.0.1` on the phone — those point at the iPhone itself.
 

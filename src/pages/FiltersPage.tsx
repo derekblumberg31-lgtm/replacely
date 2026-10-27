@@ -57,13 +57,13 @@ export function FiltersPage({
   const annualSpend = items.reduce((sum, item) => sum + annualCost(item.filter), 0);
   const hasFilters = items.length > 0;
   const overdue = next?.info.status === 'overdue';
-  const heading = filterTab === 'all' ? 'All filters' : filterTab === 'due' ? 'Due soon' : 'Overdue';
+  const heading = filterTab === 'all' ? 'All tasks' : filterTab === 'due' ? 'Due soon' : 'Overdue';
 
   return (
     <div className="page">
       <PageTitle
-        title="Filters"
-        subtitle={hasFilters ? `${items.length} tracked · ${attentionText(attention)}` : 'Everything that keeps your air and water clean.'}
+        title="Tasks"
+        subtitle={hasFilters ? `${items.length} tracked · ${attentionText(attention)}` : 'Everything your home needs, on a schedule.'}
       />
 
       {hasFilters && (
@@ -73,11 +73,11 @@ export function FiltersPage({
               type="button"
               className="next-card"
               onClick={() => onOpen(next.filter.id)}
-              aria-label={`${overdue ? 'Overdue' : 'Next replacement'}: ${next.filter.name}`}
+              aria-label={`${overdue ? 'Overdue' : 'Next due'}: ${next.filter.name}`}
             >
               <span className="next-glow" aria-hidden="true" />
               <span className="next-top">
-                <span>{overdue ? 'Past due' : 'Next replacement'}</span>
+                <span>{overdue ? 'Past due' : 'Next due'}</span>
                 <span className={`next-status ${overdue ? 'overdue' : ''}`}>
                   {overdue ? 'Overdue' : next.info.status === 'due' ? 'Due soon' : 'On track'}
                 </span>
@@ -85,7 +85,7 @@ export function FiltersPage({
               <span className={`next-countdown ${overdue ? 'is-overdue' : ''}`}>
                 <Countdown
                   ms={overdue ? next.info.overdueMs : next.info.remainingMs}
-                  label={`${overdue ? 'Overdue by' : 'Next replacement in'} ${Math.abs(next.info.daysLeft)} days`}
+                  label={`${overdue ? 'Overdue by' : 'Next due in'} ${Math.abs(next.info.daysLeft)} days`}
                 />
               </span>
               <span className="next-name">{next.filter.name}</span>
@@ -133,8 +133,8 @@ export function FiltersPage({
               type="search"
               value={query}
               onChange={(event) => onQueryChange(event.target.value)}
-              placeholder="Search filters or rooms"
-              aria-label="Search filters"
+              placeholder="Search tasks or rooms"
+              aria-label="Search tasks"
               autoComplete="off"
               spellCheck={false}
             />
@@ -169,7 +169,7 @@ export function FiltersPage({
             <span>
               {heading} · {visibleItems.length}
             </span>
-            <span className="list-hint">Swipe to replace</span>
+            <span className="list-hint">Swipe to mark done</span>
           </div>
 
           {visibleItems.length > 0 ? (
@@ -190,7 +190,7 @@ export function FiltersPage({
               <span className="no-results-icon">
                 <Search size={22} />
               </span>
-              <h2>No filters match</h2>
+              <h2>No tasks match</h2>
               <p>Try another search or status.</p>
               <button
                 type="button"
@@ -221,10 +221,10 @@ export function FiltersPage({
             </div>
           }
           title="Nothing to track yet"
-          body="Add the filters in your home and Filterly will count down to every replacement."
-          primaryLabel="Add your first filter"
+          body="Add the jobs your home needs — filters, cleaning, gutters — and Replacely will count down to each one."
+          primaryLabel="Add your first task"
           onPrimary={onAdd}
-          secondaryLabel="See how Filterly works"
+          secondaryLabel="See how Replacely works"
           onSecondary={onShowTutorial}
         />
       )}

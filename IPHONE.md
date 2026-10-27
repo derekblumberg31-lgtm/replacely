@@ -1,6 +1,6 @@
-# Running Filterly on an iPhone
+# Running Replacely on an iPhone
 
-Filterly is a mobile-first PWA. You can open it in iPhone Safari over your local Wi-Fi, or install it to
+Replacely is a mobile-first PWA. You can open it in iPhone Safari over your local Wi-Fi, or install it to
 the Home Screen so it behaves like a small native app. No Apple Developer account, Xcode project or App
 Store review is involved.
 
@@ -13,7 +13,7 @@ There are two levels of “installed”:
 
 iOS only permits service workers — the technology that caches a web app for offline use — in a **secure
 context**. `localhost` counts as secure on the Mac, but `http://192.168.x.x` does not count on the
-iPhone. That is a Safari rule, not a Filterly setting.
+iPhone. That is a Safari rule, not a Replacely setting.
 
 ## What you need
 
@@ -70,11 +70,11 @@ Do **not** type `localhost` or `127.0.0.1` into the iPhone — those point at th
 1. Connect the iPhone to the **same Wi-Fi** as the Mac.
 2. Open the iPhone **Camera**, point it at the QR code in the terminal, and tap the banner that appears.
    Or type the `http://192.168.x.x:5180/` address into **Safari**.
-3. Wait for Filterly to load. If it is your first visit, the four-page guide appears; swipe through it.
+3. Wait for Replacely to load. If it is your first visit, the four-page guide appears; swipe through it.
 4. Tap the **Share** button (square with an arrow) in Safari's toolbar.
 5. Scroll down and tap **Add to Home Screen**.
-6. Keep the name **Filterly** and tap **Add**.
-7. Open Filterly from the Home Screen. It runs without Safari's toolbars, with the notch and home
+6. Keep the name **Replacely** and tap **Add**.
+7. Open Replacely from the Home Screen. It runs without Safari's toolbars, with the notch and home
    indicator respected.
 
 To remove it later, touch and hold the Home Screen icon and choose **Remove Bookmark** / **Delete**.
@@ -115,12 +115,12 @@ This is the reliable way to get a real, offline-capable Home Screen app.
    Serve the app from a domain root so its absolute icon and manifest paths resolve normally.
 3. Open the HTTPS URL in **Safari on the iPhone**. Let it finish loading once.
 4. Tap **Share → Add to Home Screen → Add**.
-5. Open Filterly once from the Home Screen while online, then test it in Airplane Mode. The app shell and
+5. Open Replacely once from the Home Screen while online, then test it in Airplane Mode. The app shell and
    icons come from the cache; your filters come from the phone's local storage.
 
 No Mac is needed after step 5, and no internet is needed to open the app or edit filters.
 
-> A static host publishes the app publicly. Filterly has no server or secrets, but the URL is public. If
+> A static host publishes the app publicly. Replacely has no server or secrets, but the URL is public. If
 > you need a private install, use a host with access protection, or a temporary tunnel.
 
 ### Option B — a temporary HTTPS tunnel (advanced)
@@ -140,7 +140,7 @@ once while the tunnel is running. After it has cached, it continues to open offl
 and the Mac are gone. Quick tunnels are temporary and their URLs change; use a permanent HTTPS host if
 you want a durable install and future updates.
 
-## Using Filterly on the phone
+## Using Replacely on the phone
 
 - **Tabs** — Filters, Schedule, Insights and Settings. A red badge on Filters means something is overdue;
   an orange dot means something is due soon.
@@ -152,7 +152,7 @@ you want a durable install and future updates.
 - **Settings → Your data** exports a JSON backup. Import replaces the filters on that device; the app asks
   before overwriting.
 
-The first-run guide appears once. Replay it from **Settings → Help → How Filterly works** or from the
+The first-run guide appears once. Replay it from **Settings → Help → How Replacely works** or from the
 empty Filters screen.
 
 ## Environment variables
@@ -218,7 +218,7 @@ from **Settings → Your data → Import backup**.
 
 ### Notifications do not appear
 
-iOS web apps cannot schedule local notifications. Filterly shows a red overdue badge and an orange due
+iOS web apps cannot schedule local notifications. Replacely shows a red overdue badge and an orange due
 dot on the Filters tab instead; all countdowns work. On desktop browsers, optional reminders appear when
 the app is opened, at most once a day, and need notification permission plus a secure context.
 
@@ -230,7 +230,7 @@ dated before the current filter was installed.
 
 ### Text or buttons feel too large / small
 
-Filterly uses the iOS system font and respects Dynamic Type where Safari allows. If the layout feels
+Replacely uses the iOS system font and respects Dynamic Type where Safari allows. If the layout feels
 crowded at a very large text size, reduce the text size in **Settings → Accessibility → Display & Text
 Size**, or use landscape on a larger phone.
 
@@ -240,4 +240,4 @@ For this app, the PWA is the smaller, more practical route: one codebase, no Xco
 build or signing, and installation directly from Safari. It supports the full-screen app experience,
 gestures, sheets, dark mode, local storage and offline caching. A native build would only add value for
 background push notifications or App Store distribution; iOS web apps cannot schedule those local alerts,
-but Filterly's countdowns and due badges do not require them.
+but Replacely's countdowns and due badges do not require them.

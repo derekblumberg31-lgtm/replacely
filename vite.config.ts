@@ -46,10 +46,10 @@ export default defineConfig({
       includeAssets: ['icons/favicon.svg', 'icons/apple-touch-icon.png'],
       manifest: {
         id: BASE,
-        name: 'Filterly — Filter Tracker',
-        short_name: 'Filterly',
+        name: 'Replacely — Household Reminders',
+        short_name: 'Replacely',
         description:
-          'Track every filter in your home with a live replacement countdown, locations, history and cost estimates.',
+          'Household reminders with a live countdown: cleaning, maintenance, filters, gutters and safety checks, each with a location, history and cost.',
         start_url: BASE,
         scope: BASE,
         display: 'standalone',

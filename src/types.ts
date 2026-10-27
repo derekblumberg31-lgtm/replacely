@@ -1,4 +1,14 @@
-export type Category = 'air' | 'water' | 'appliance' | 'vehicle' | 'pool' | 'other';
+export type Category =
+  | 'cleaning'
+  | 'maintenance'
+  | 'outdoor'
+  | 'safety'
+  | 'air'
+  | 'water'
+  | 'appliance'
+  | 'vehicle'
+  | 'pool'
+  | 'other';
 
 export type FilterStatus = 'healthy' | 'due' | 'overdue';
 

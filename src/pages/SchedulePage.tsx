@@ -31,7 +31,7 @@ export function SchedulePage({ items, onOpen, onAdd, onShowTutorial }: ScheduleP
   if (items.length === 0) {
     return (
       <div className="page">
-        <PageTitle title="Schedule" subtitle="Every replacement, in order." />
+        <PageTitle title="Schedule" subtitle="Everything coming up, in order." />
         <EmptyState
           art={
             <span className="empty-round-icon">
@@ -39,10 +39,10 @@ export function SchedulePage({ items, onOpen, onAdd, onShowTutorial }: ScheduleP
             </span>
           }
           title="Nothing scheduled yet"
-          body="Once you add a filter, its replacement date will appear here — grouped by when it’s due."
-          primaryLabel="Add a filter"
+          body="Once you add a task, its due date appears here — grouped by when it’s due."
+          primaryLabel="Add a task"
           onPrimary={onAdd}
-          secondaryLabel="How Filterly works"
+          secondaryLabel="How Replacely works"
           onSecondary={onShowTutorial}
           compact
         />
@@ -76,8 +76,8 @@ export function SchedulePage({ items, onOpen, onAdd, onShowTutorial }: ScheduleP
         title="Schedule"
         subtitle={
           attention > 0
-            ? `${items.length} ${items.length === 1 ? 'filter' : 'filters'} · ${attention === 1 ? '1 needs' : `${attention} need`} attention`
-            : `${items.length} ${items.length === 1 ? 'filter' : 'filters'} · all on schedule`
+            ? `${items.length} ${items.length === 1 ? 'task' : 'tasks'} · ${attention === 1 ? '1 needs' : `${attention} need`} attention`
+            : `${items.length} ${items.length === 1 ? 'task' : 'tasks'} · all on schedule`
         }
       />
 
@@ -121,7 +121,7 @@ export function SchedulePage({ items, onOpen, onAdd, onShowTutorial }: ScheduleP
 
       <p className="local-note">
         <Calendar size={12} />
-        Replacement dates update as soon as you mark a filter replaced.
+        Due dates update as soon as you mark a task done.
       </p>
     </div>
   );

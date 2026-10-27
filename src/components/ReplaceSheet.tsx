@@ -24,15 +24,15 @@ export function ReplaceSheet({ filter, onCancel, onConfirm }: ReplaceSheetProps)
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
     if (!date) {
-      setError('Pick the replacement date.');
+      setError('Pick the date you did it.');
       return;
     }
     if (date > today) {
-      setError('The replacement date can’t be in the future.');
+      setError('The date can’t be in the future.');
       return;
     }
     if (date < filter.installedAt) {
-      setError('That’s before this filter was installed.');
+      setError('That’s before this task started.');
       return;
     }
     onConfirm(date, note.trim() || undefined);
@@ -40,7 +40,7 @@ export function ReplaceSheet({ filter, onCancel, onConfirm }: ReplaceSheetProps)
 
   return (
     <Sheet
-      title="Replace filter"
+      title="Mark done"
       onClose={onCancel}
       elevated
       footer={
@@ -70,7 +70,7 @@ export function ReplaceSheet({ filter, onCancel, onConfirm }: ReplaceSheetProps)
         <div className="form-group replace-group">
           <div className="form-field">
             <label className="form-label" htmlFor="replace-date">
-              Replaced on
+              Done on
             </label>
             <input
               id="replace-date"
@@ -86,7 +86,7 @@ export function ReplaceSheet({ filter, onCancel, onConfirm }: ReplaceSheetProps)
               aria-invalid={Boolean(error)}
             />
             {error && <span className="form-error">{error}</span>}
-            <span className="form-hint">Installed {formatDate(filter.installedAt)}</span>
+            <span className="form-hint">Started {formatDate(filter.installedAt)}</span>
           </div>
 
           <div className="form-field">
@@ -118,7 +118,7 @@ export function ReplaceSheet({ filter, onCancel, onConfirm }: ReplaceSheetProps)
         )}
 
         <p className="sheet-note">
-          The previous filter’s run is added to the history. Your filter details stay the same.
+          That run is added to the history. Your task details stay the same.
           <ChevronRight size={13} />
         </p>
       </form>

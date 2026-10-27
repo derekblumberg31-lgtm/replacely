@@ -3,7 +3,7 @@ import type { Filter } from '../types';
 import { findType } from '../data/filterTypes';
 import { formatDate, splitDuration, type FilterInfo } from '../lib/filters';
 import { Countdown } from './Countdown';
-import { CategoryIcon, ChevronRight, MapPin, RefreshCw } from './Icons';
+import { CategoryIcon, Check, ChevronRight, MapPin } from './Icons';
 
 const STATUS_LABEL = {
   healthy: 'Healthy',
@@ -37,7 +37,7 @@ export function FilterCard({ filter, info, now, onOpen, onReplace }: FilterCardP
 
   const duration = overdue ? info.overdueMs : info.remainingMs;
   const parts = splitDuration(duration);
-  const caption = overdue ? 'past due' : info.daysLeft === 0 ? 'left today' : 'until replacement';
+  const caption = overdue ? 'past due' : info.daysLeft === 0 ? 'left today' : 'to go';
 
   function handlePointerDown(event: PointerEvent<HTMLDivElement>) {
     if (event.pointerType === 'mouse' && event.button !== 0) return;
@@ -110,8 +110,8 @@ export function FilterCard({ filter, info, now, onOpen, onReplace }: FilterCardP
           onReplace();
         }}
       >
-        <RefreshCw size={21} />
-        <span>Replace</span>
+        <Check size={21} />
+        <span>Done</span>
       </button>
 
       <article
@@ -169,8 +169,8 @@ export function FilterCard({ filter, info, now, onOpen, onReplace }: FilterCardP
               onReplace();
             }}
           >
-            <RefreshCw size={15} />
-            Replace
+            <Check size={15} />
+            Done
           </button>
           <button
             type="button"

@@ -150,7 +150,7 @@ export function saveState(state: AppState): void {
 export function buildBackup(state: AppState): string {
   return JSON.stringify(
     {
-      app: 'filterly',
+      app: 'replacely',
       version: 2,
       exportedAt: new Date().toISOString(),
       filters: state.filters,

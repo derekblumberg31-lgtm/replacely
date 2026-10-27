@@ -24,8 +24,8 @@ export function InsightsPage({ items, now, onAdd, onOpenSettings }: InsightsPage
             </span>
           }
           title="No insights yet"
-          body="Add a few filters with their replacement costs and Filterly will estimate your yearly spend and show upcoming months."
-          primaryLabel="Add a filter"
+          body="Add a few tasks with their costs and Replacely will estimate your yearly spend and show upcoming months."
+          primaryLabel="Add a task"
           onPrimary={onAdd}
           compact
         />
@@ -70,16 +70,16 @@ export function InsightsPage({ items, now, onAdd, onOpenSettings }: InsightsPage
         </div>
         <p className="insight-big">{formatCurrency(Math.round(annualSpend))}</p>
         <p className="insight-sub">
-          About {Math.max(1, Math.round(replacementsPerYear))} replacement
+          About {Math.max(1, Math.round(replacementsPerYear))} job
           {Math.round(replacementsPerYear) === 1 ? '' : 's'} a year across {items.length}{' '}
-          {items.length === 1 ? 'filter' : 'filters'}.
+          {items.length === 1 ? 'task' : 'tasks'}.
         </p>
         <p className="insight-foot">
           {pricedCount === items.length
-            ? 'Based on the cost entered for each filter. Actual prices vary.'
+            ? 'Based on the cost entered for each task. Actual prices vary.'
             : pricedCount === 0
-              ? 'Add replacement costs to see a spend estimate.'
-              : `Based on ${pricedCount} of ${items.length} filters with a cost entered.`}
+              ? 'Add costs to see a spend estimate.'
+              : `Based on ${pricedCount} of ${items.length} tasks with a cost entered.`}
         </p>
       </section>
 
@@ -88,13 +88,13 @@ export function InsightsPage({ items, now, onAdd, onOpenSettings }: InsightsPage
           <span className="insight-tile-label">Next 90 days</span>
           <span className="insight-tile-value">{formatCurrency(Math.round(due90Cost))}</span>
           <span className="insight-tile-note">
-            {due90.length} replacement{due90.length === 1 ? '' : 's'} coming up
+            {due90.length} task{due90.length === 1 ? '' : 's'} coming up
           </span>
         </div>
         <div className="insight-tile">
           <span className="insight-tile-label">Per year</span>
           <span className="insight-tile-value">{Math.max(1, Math.round(replacementsPerYear))}</span>
-          <span className="insight-tile-note">replacements to plan for</span>
+          <span className="insight-tile-note">tasks to plan for</span>
         </div>
       </div>
 
@@ -102,7 +102,7 @@ export function InsightsPage({ items, now, onAdd, onOpenSettings }: InsightsPage
         <div className="insight-card-head">
           <h2>By category</h2>
           <span>
-            {items.length} {items.length === 1 ? 'filter' : 'filters'}
+            {items.length} {items.length === 1 ? 'task' : 'tasks'}
           </span>
         </div>
         <div className="category-list">
@@ -122,7 +122,7 @@ export function InsightsPage({ items, now, onAdd, onOpenSettings }: InsightsPage
       <section className="insight-card">
         <div className="insight-card-head">
           <h2>Next 6 months</h2>
-          <span>replacements</span>
+          <span>tasks</span>
         </div>
         <div className="months-chart">
           {months.map((month) => (
@@ -138,7 +138,7 @@ export function InsightsPage({ items, now, onAdd, onOpenSettings }: InsightsPage
             </div>
           ))}
         </div>
-        <p className="insight-foot">Based on the due dates of filters in this app.</p>
+        <p className="insight-foot">Based on the due dates in this app.</p>
       </section>
 
       <button type="button" className="insight-link-row" onClick={onOpenSettings}>
