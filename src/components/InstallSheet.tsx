@@ -18,7 +18,11 @@ export function InstallSheet({ installed, onClose }: InstallSheetProps) {
       }
     >
       <div className="install-hero">
-        <img className="install-app-icon" src="/icons/icon-192.png" alt="Filterly app icon" />
+        <img
+          className="install-app-icon"
+          src={`${import.meta.env.BASE_URL}icons/icon-192.png`}
+          alt="Filterly app icon"
+        />
         <h2>{installed ? 'Filterly is installed' : 'Install Filterly'}</h2>
         <p>
           {installed

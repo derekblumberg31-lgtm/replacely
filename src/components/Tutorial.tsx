@@ -122,7 +122,7 @@ function TutorialArt({ step, installed }: { step: number; installed: boolean }) 
         </div>
         <div className="tut-home-row">
           <span className="tut-app-wrap">
-            <img className="tut-app-icon" src="/icons/icon-192.png" alt="" />
+            <img className="tut-app-icon" src={`${import.meta.env.BASE_URL}icons/icon-192.png`} alt="" />
             <span className="tut-home-label">Filterly</span>
           </span>
           <span className="tut-home-app is-muted" />
