@@ -8,9 +8,9 @@
       name="description"
       content="Household reminders with a live countdown: cleaning, maintenance, filters, gutters and safety checks, each with a location, history and cost."
     />
-    <meta name="theme-color" content="#f2f2f7" />
+    <meta name="theme-color" content="#c8281d" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="apple-mobile-web-app-title" content="Replacely" />
     <meta name="format-detection" content="telephone=no" />
     <link rel="icon" href="/icons/favicon.svg" type="image/svg+xml" />
@@ -38,7 +38,7 @@
         document.documentElement.dataset.theme = theme;
         document.documentElement.style.colorScheme = theme;
         var meta = document.querySelector('meta[name="theme-color"]');
-        if (meta) meta.setAttribute('content', theme === 'dark' ? '#000000' : '#f2f2f7');
+        if (meta) meta.setAttribute('content', theme === "dark" ? "#9e2117" : "#c8281d");
       } catch (error) {}
     </script>
   </head>

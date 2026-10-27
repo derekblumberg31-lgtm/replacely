@@ -75,6 +75,40 @@ export function formatDuration(ms: number, includeSeconds = true): string {
   return days > 0 ? `${days}d ${clock}` : clock;
 }
 
+export interface CountdownParts {
+  /** The number to set large, or null for "Today" / "Tomorrow". */
+  value: number | null;
+  /** The unit (or the whole phrase when value is null). */
+  unit: string;
+  overdue: boolean;
+  /** Full phrase for screen readers and plain-text spots. */
+  label: string;
+}
+
+function largestUnit(days: number): { value: number; unit: string } {
+  if (days >= 30) {
+    const months = Math.floor(days / 30);
+    return { value: months, unit: months === 1 ? 'month' : 'months' };
+  }
+  if (days >= 7) {
+    const weeks = Math.floor(days / 7);
+    return { value: weeks, unit: weeks === 1 ? 'week' : 'weeks' };
+  }
+  return { value: days, unit: days === 1 ? 'day' : 'days' };
+}
+
+/** Countdown in the largest whole unit: "3 months", "2 weeks", "5 days", "Today", "2 days over". */
+export function countdownParts(info: FilterInfo): CountdownParts {
+  if (info.status === 'overdue') {
+    const { value, unit } = largestUnit(Math.max(1, -info.daysLeft));
+    return { value, unit: `${unit} over`, overdue: true, label: `${value} ${unit} overdue` };
+  }
+  if (info.daysLeft <= 0) return { value: null, unit: 'Today', overdue: false, label: 'Due today' };
+  if (info.daysLeft === 1) return { value: null, unit: 'Tomorrow', overdue: false, label: 'Due tomorrow' };
+  const { value, unit } = largestUnit(info.daysLeft);
+  return { value, unit, overdue: false, label: `${value} ${unit} left` };
+}
+
 export interface FilterItem {
   filter: Filter;
   info: FilterInfo;

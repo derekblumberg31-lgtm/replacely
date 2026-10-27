@@ -1,15 +1,9 @@
 import { useRef, useState, type CSSProperties, type MouseEvent, type PointerEvent } from 'react';
 import type { Filter } from '../types';
-import { findType } from '../data/filterTypes';
-import { formatDate, splitDuration, type FilterInfo } from '../lib/filters';
+import { countdownParts, type FilterInfo } from '../lib/filters';
 import { Countdown } from './Countdown';
-import { CategoryIcon, Check, ChevronRight, MapPin } from './Icons';
-
-const STATUS_LABEL = {
-  healthy: 'Healthy',
-  due: 'Due soon',
-  overdue: 'Overdue',
-} as const;
+import { DayStrip } from './DayStrip';
+import { Check } from './Icons';
 
 const ACTION_WIDTH = 88;
 
@@ -17,37 +11,27 @@ interface FilterCardProps {
   filter: Filter;
   info: FilterInfo;
   now: number;
+  /** The most urgent job: shows its run as crossed-off calendar days. */
+  featured?: boolean;
   onOpen: () => void;
   onReplace: () => void;
 }
 
-export function FilterCard({ filter, info, now, onOpen, onReplace }: FilterCardProps) {
-  const type = findType(filter.typeId);
-  const overdue = info.status === 'overdue';
+export function FilterCard({ filter, info, now, featured = false, onOpen, onReplace }: FilterCardProps) {
   const [open, setOpen] = useState(false);
   const [dragX, setDragX] = useState<number | null>(null);
   const start = useRef<{ x: number; y: number; base: number; horizontal: boolean | null } | null>(null);
   const moved = useRef(false);
   const dragging = useRef(false);
 
-  const dueLabel =
-    info.dueDate.getFullYear() === new Date(now).getFullYear()
-      ? info.dueDate.toLocaleDateString(undefined, { month: 'short', day: 'numeric' })
-      : formatDate(info.dueDate);
-
-  const duration = overdue ? info.overdueMs : info.remainingMs;
-  const parts = splitDuration(duration);
-  const caption = overdue ? 'past due' : info.daysLeft === 0 ? 'left today' : 'to go';
-
-  function handlePointerDown(event: PointerEvent<HTMLDivElement>) {
+  function handlePointerDown(event: PointerEvent<HTMLButtonElement>) {
     if (event.pointerType === 'mouse' && event.button !== 0) return;
-    if ((event.target as HTMLElement).closest('button')) return;
     start.current = { x: event.clientX, y: event.clientY, base: open ? -ACTION_WIDTH : 0, horizontal: null };
     dragging.current = true;
     event.currentTarget.setPointerCapture(event.pointerId);
   }
 
-  function handlePointerMove(event: PointerEvent<HTMLDivElement>) {
+  function handlePointerMove(event: PointerEvent<HTMLButtonElement>) {
     if (!dragging.current || !start.current) return;
     const dx = event.clientX - start.current.x;
     const dy = event.clientY - start.current.y;
@@ -62,7 +46,7 @@ export function FilterCard({ filter, info, now, onOpen, onReplace }: FilterCardP
     setDragX(Math.max(-ACTION_WIDTH, Math.min(0, start.current.base + dx)));
   }
 
-  function endDrag(event: PointerEvent<HTMLDivElement>) {
+  function endDrag(event: PointerEvent<HTMLButtonElement>) {
     if (!dragging.current) return;
     const value = dragX ?? (open ? -ACTION_WIDTH : 0);
     dragging.current = false;
@@ -84,7 +68,7 @@ export function FilterCard({ filter, info, now, onOpen, onReplace }: FilterCardP
     moved.current = false;
   }
 
-  function handleCardClick() {
+  function handleClick() {
     if (open) {
       setOpen(false);
       return;
@@ -99,7 +83,7 @@ export function FilterCard({ filter, info, now, onOpen, onReplace }: FilterCardP
   };
 
   return (
-    <div className={`swipe-shell ${open ? 'is-open' : ''}`}>
+    <div className={`swipe-shell ${open ? 'is-open' : ''} ${open || dragX !== null ? 'is-revealed' : ''}`}>
       <button
         type="button"
         className="swipe-action"
@@ -114,77 +98,27 @@ export function FilterCard({ filter, info, now, onOpen, onReplace }: FilterCardP
         <span>Done</span>
       </button>
 
-      <article
-        className={`filter-card status-${info.status} cat-${type.category}`}
+      <button
+        type="button"
+        className={`task-row status-${info.status} ${featured ? 'is-featured' : ''}`}
         style={swipeStyle}
-        onClick={handleCardClick}
+        aria-label={`${filter.name}, ${filter.location}, ${countdownParts(info).label}`}
+        onClick={handleClick}
         onClickCapture={handleClickCapture}
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
         onPointerUp={endDrag}
         onPointerCancel={endDrag}
       >
-        <div className="card-top">
-          <span className="category-icon">
-            <CategoryIcon category={type.category} size={20} />
+        <span className="task-row-line">
+          <span className="task-row-copy">
+            <span className="task-row-name">{filter.name}</span>
+            <span className="task-row-location">{filter.location}</span>
           </span>
-          <div className="card-heading">
-            <p className="card-type">{type.label}</p>
-            <h3 className="card-name">{filter.name}</h3>
-          </div>
-          <span className={`status-pill ${info.status}`}>{STATUS_LABEL[info.status]}</span>
-        </div>
-
-        <p className="card-location">
-          <MapPin size={14} />
-          <span>{filter.location}</span>
-        </p>
-
-        <div className="card-countdown-row">
-          <Countdown
-            ms={duration}
-            label={
-              overdue
-                ? `Overdue by ${parts.days} days, ${parts.hours} hours, ${parts.minutes} minutes`
-                : `${STATUS_LABEL[info.status]}: ${parts.days} days, ${parts.hours} hours, ${parts.minutes} minutes remaining`
-            }
-          />
-          <span className="card-caption">{caption}</span>
-        </div>
-
-        <div className="progress-track" aria-hidden="true">
-          <span className="progress-fill" style={{ width: `${Math.min(100, info.percentUsed)}%` }} />
-        </div>
-        <div className="card-meta">
-          <span>{Math.round(info.percentUsed)}% used</span>
-          <span>Due {dueLabel}</span>
-        </div>
-
-        <div className="card-actions">
-          <button
-            type="button"
-            className="card-replace-button"
-            onClick={(event) => {
-              event.stopPropagation();
-              onReplace();
-            }}
-          >
-            <Check size={15} />
-            Done
-          </button>
-          <button
-            type="button"
-            className="card-details-button"
-            onClick={(event) => {
-              event.stopPropagation();
-              onOpen();
-            }}
-          >
-            Details
-            <ChevronRight size={16} />
-          </button>
-        </div>
-      </article>
+          <Countdown info={info} />
+        </span>
+        {featured && <DayStrip filter={filter} now={now} />}
+      </button>
     </div>
   );
 }

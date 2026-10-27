@@ -6,7 +6,14 @@ import { Sheet } from './Sheet';
 import { Calendar, ChevronDown } from './Icons';
 
 const FORM_ID = 'filter-editor-form';
-const LIFESPAN_CHIPS = [30, 60, 90, 180, 365, 730];
+const LIFESPAN_CHIPS = [
+  { days: 30, label: '1 mo' },
+  { days: 60, label: '2 mo' },
+  { days: 90, label: '3 mo' },
+  { days: 180, label: '6 mo' },
+  { days: 365, label: '1 yr' },
+  { days: 730, label: '2 yr' },
+];
 
 interface FilterFormProps {
   initial: Filter | null;
@@ -212,7 +219,7 @@ export function FilterForm({ initial, locations, onClose, onSave }: FilterFormPr
                 <span className="form-suffix">days</span>
               </span>
               <div className="form-chips">
-                {LIFESPAN_CHIPS.map((days) => (
+                {LIFESPAN_CHIPS.map(({ days, label }) => (
                   <button
                     key={days}
                     type="button"
@@ -222,7 +229,7 @@ export function FilterForm({ initial, locations, onClose, onSave }: FilterFormPr
                       setLifespanTouched(true);
                     }}
                   >
-                    {days}d
+                    {label}
                   </button>
                 ))}
               </div>

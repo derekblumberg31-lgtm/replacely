@@ -1,5 +1,7 @@
 import { useRef, useState, type PointerEvent } from 'react';
-import { Check, ChevronDown, ChevronRight, RefreshCw, Share, Wind } from './Icons';
+import { toDateInput } from '../lib/filters';
+import { DayStrip } from './DayStrip';
+import { Check, ChevronDown, ChevronRight, RefreshCw, Share } from './Icons';
 
 interface TutorialProps {
   installed: boolean;
@@ -9,7 +11,7 @@ interface TutorialProps {
 const SLIDES = [
   {
     title: 'Every chore, one countdown.',
-    body: 'Add the jobs your home needs — filters, cleaning, gutters, safety checks — and Replacely counts down to each one.',
+    body: 'Add the jobs your home needs, like filters, cleaning, gutters and safety checks, and Replacely counts down to each one.',
   },
   {
     title: 'Set it once, in seconds.',
@@ -27,32 +29,36 @@ const SLIDES = [
 
 function TutorialArt({ step, installed }: { step: number; installed: boolean }) {
   if (step === 0) {
+    const day = 86_400_000;
+    const sample = { installedAt: toDateInput(new Date(Date.now() - 18 * day)), lifespanDays: 21 };
     return (
       <div className="tut-art-inner tut-art-countdown">
-        <span className="tut-orbit" />
-        <div className="tut-mini-card">
-          <div className="tut-mini-top">
-            <span className="tut-mini-icon">
-              <Wind size={16} />
+        <div className="task-group tut-list" aria-hidden="true">
+          <div className="task-row is-featured">
+            <span className="task-row-line">
+              <span className="task-row-copy">
+                <span className="task-row-name">Mop hard floors</span>
+                <span className="task-row-location">Kitchen</span>
+              </span>
+              <span className="countdown">
+                <span className="countdown-number">3</span>
+                <span className="countdown-unit">days</span>
+              </span>
             </span>
-            <span>Clean out dryer vent</span>
-            <span className="tut-mini-status">Due soon</span>
+            <DayStrip filter={sample} now={Date.now()} />
           </div>
-          <p className="tut-mini-name">Utility room</p>
-          <div className="tut-mini-time">
-            12<span>d</span> 04<span>h</span> 18<span>m</span>
+          <div className="task-row tut-list-row">
+            <span className="task-row-line">
+              <span className="task-row-copy">
+                <span className="task-row-name">Clean the gutters</span>
+                <span className="task-row-location">Front and back</span>
+              </span>
+              <span className="countdown">
+                <span className="countdown-number">4</span>
+                <span className="countdown-unit">months</span>
+              </span>
+            </span>
           </div>
-          <div className="tut-mini-track">
-            <span />
-          </div>
-          <div className="tut-mini-meta">
-            <span>87% used</span>
-            <span>Due Nov 6</span>
-          </div>
-        </div>
-        <div className="tut-floating-chip">
-          <Check size={14} />
-          Countdown live
         </div>
       </div>
     );
@@ -180,9 +186,7 @@ export function Tutorial({ installed, onClose }: TutorialProps) {
     <div className="tutorial" role="dialog" aria-modal="true" aria-label="How Replacely works">
       <div className="tutorial-top">
         <div className="tutorial-brand">
-          <span className="tutorial-mark">
-            <Wind size={15} />
-          </span>
+          <img className="tutorial-mark" src={`${import.meta.env.BASE_URL}icons/icon-192.png`} alt="" />
           Replacely guide
         </div>
         <button type="button" className="tutorial-skip" onClick={onClose}>
@@ -214,9 +218,6 @@ export function Tutorial({ installed, onClose }: TutorialProps) {
                 <TutorialArt step={slideIndex} installed={installed} />
               </div>
               <div className="tutorial-copy">
-                <span className="tutorial-step">
-                  {slideIndex + 1} / {SLIDES.length}
-                </span>
                 <h2>{slide.title}</h2>
                 <p>{slide.body}</p>
                 {slideIndex === lastIndex && installed && (

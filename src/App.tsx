@@ -41,7 +41,17 @@ import { FiltersPage } from './pages/FiltersPage';
 import { SchedulePage } from './pages/SchedulePage';
 import { InsightsPage } from './pages/InsightsPage';
 import { SettingsPage } from './pages/SettingsPage';
-import { AlertTriangle, Check, Plus, Wind } from './components/Icons';
+import { AlertTriangle, Check, Plus } from './components/Icons';
+
+const TAB_TITLES: Record<TabKey, string> = {
+  filters: 'Tasks',
+  schedule: 'Schedule',
+  insights: 'Insights',
+  settings: 'Settings',
+};
+
+/** Browser chrome matches the printed header band. */
+const BAND_COLOR: Record<ResolvedTheme, string> = { light: '#c8281d', dark: '#9e2117' };
 
 export default function App() {
   const [app, setApp] = useState<AppState>(() => loadState() ?? createInitialState());
@@ -79,7 +89,7 @@ export default function App() {
     root.dataset.theme = resolvedTheme;
     root.style.colorScheme = resolvedTheme;
     const meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute('content', resolvedTheme === 'dark' ? '#000000' : '#f2f2f7');
+    if (meta) meta.setAttribute('content', BAND_COLOR[resolvedTheme]);
   }, [resolvedTheme]);
 
   useEffect(() => {
@@ -171,8 +181,6 @@ export default function App() {
     overdue: 0,
   };
   for (const item of items) counts[item.info.status] += 1;
-
-  const next = [...items].sort(compareUrgency)[0] ?? null;
 
   const visibleItems = useMemo(() => {
     const needle = query.trim().toLocaleLowerCase();
@@ -359,15 +367,19 @@ export default function App() {
     <div className="app-shell">
       <header className="app-bar">
         <div className="app-bar-inner">
-          <div className="brand">
-            <span className="brand-mark">
-              <Wind size={17} />
-            </span>
-            <span className="brand-name">Replacely</span>
+          <div className="band-copy">
+            {(tab === 'filters' || tab === 'schedule') && (
+              <span className="band-month">
+                {new Date(now).toLocaleDateString(undefined, { month: 'long', year: 'numeric' })}
+              </span>
+            )}
+            <h1 className="band-title">{TAB_TITLES[tab]}</h1>
           </div>
-          <button type="button" className="add-button" onClick={openAdd} aria-label="Add task">
-            <Plus size={22} />
-          </button>
+          {tab !== 'settings' && (
+            <button type="button" className="add-button" onClick={openAdd} aria-label="Add task">
+              <Plus size={22} />
+            </button>
+          )}
         </div>
       </header>
 
@@ -377,13 +389,9 @@ export default function App() {
             <FiltersPage
               items={items}
               visibleItems={visibleItems}
-              next={next}
-              counts={counts}
               now={now}
               query={query}
               onQueryChange={setQuery}
-              filterTab={filterTab}
-              onFilterTabChange={setFilterTab}
               onAdd={openAdd}
               onOpen={setDetailId}
               onReplace={setReplaceId}

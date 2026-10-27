@@ -3,7 +3,7 @@ import { annualCost, formatCurrency } from '../lib/filters';
 import { CATEGORY_META, CATEGORY_ORDER, findType } from '../data/filterTypes';
 import { PageTitle } from '../components/PageTitle';
 import { EmptyState } from '../components/EmptyState';
-import { ChartBar, ChevronRight, Wallet } from '../components/Icons';
+import { ChartBar, ChevronRight } from '../components/Icons';
 
 interface InsightsPageProps {
   items: FilterItem[];
@@ -16,7 +16,7 @@ export function InsightsPage({ items, now, onAdd, onOpenSettings }: InsightsPage
   if (items.length === 0) {
     return (
       <div className="page">
-        <PageTitle title="Insights" subtitle="Costs, categories and what’s coming up." />
+        <PageTitle subtitle="Costs, categories and what’s coming up." />
         <EmptyState
           art={
             <span className="empty-round-icon">
@@ -61,19 +61,24 @@ export function InsightsPage({ items, now, onAdd, onOpenSettings }: InsightsPage
 
   return (
     <div className="page">
-      <PageTitle title="Insights" subtitle="Costs, categories and what’s coming up." />
-
-      <section className="insight-hero">
-        <div className="insight-eyebrow">
-          <Wallet size={14} />
-          Estimated yearly spend
+      <section className="insight-section" aria-label="Costs">
+        <h2 className="insight-section-head">Costs</h2>
+        <div className="list-group">
+          <div>
+            <span>Estimated per year</span>
+            <strong className="list-figure">{formatCurrency(Math.round(annualSpend))}</strong>
+          </div>
+          <div>
+            <span>Next 90 days</span>
+            <strong>
+              {formatCurrency(Math.round(due90Cost))} · {due90.length} task{due90.length === 1 ? '' : 's'}
+            </strong>
+          </div>
+          <div>
+            <span>Jobs per year</span>
+            <strong>{Math.max(1, Math.round(replacementsPerYear))}</strong>
+          </div>
         </div>
-        <p className="insight-big">{formatCurrency(Math.round(annualSpend))}</p>
-        <p className="insight-sub">
-          About {Math.max(1, Math.round(replacementsPerYear))} job
-          {Math.round(replacementsPerYear) === 1 ? '' : 's'} a year across {items.length}{' '}
-          {items.length === 1 ? 'task' : 'tasks'}.
-        </p>
         <p className="insight-foot">
           {pricedCount === items.length
             ? 'Based on the cost entered for each task. Actual prices vary.'
@@ -82,21 +87,6 @@ export function InsightsPage({ items, now, onAdd, onOpenSettings }: InsightsPage
               : `Based on ${pricedCount} of ${items.length} tasks with a cost entered.`}
         </p>
       </section>
-
-      <div className="insight-grid-2">
-        <div className="insight-tile">
-          <span className="insight-tile-label">Next 90 days</span>
-          <span className="insight-tile-value">{formatCurrency(Math.round(due90Cost))}</span>
-          <span className="insight-tile-note">
-            {due90.length} task{due90.length === 1 ? '' : 's'} coming up
-          </span>
-        </div>
-        <div className="insight-tile">
-          <span className="insight-tile-label">Per year</span>
-          <span className="insight-tile-value">{Math.max(1, Math.round(replacementsPerYear))}</span>
-          <span className="insight-tile-note">tasks to plan for</span>
-        </div>
-      </div>
 
       <section className="insight-card">
         <div className="insight-card-head">

@@ -1,9 +1,9 @@
 import type { FilterItem } from '../lib/filters';
-import { compareUrgency, formatDate } from '../lib/filters';
+import { compareUrgency } from '../lib/filters';
+import { Countdown } from '../components/Countdown';
 import { PageTitle } from '../components/PageTitle';
 import { EmptyState } from '../components/EmptyState';
-import { Calendar, CategoryIcon, ChevronRight, MapPin } from '../components/Icons';
-import { findType } from '../data/filterTypes';
+import { Calendar } from '../components/Icons';
 
 interface SchedulePageProps {
   items: FilterItem[];
@@ -19,19 +19,11 @@ interface Group {
   items: FilterItem[];
 }
 
-function whenLabel(item: FilterItem): string {
-  const { info } = item;
-  if (info.status === 'overdue') return `${Math.abs(info.daysLeft)}d late`;
-  if (info.daysLeft === 0) return 'Today';
-  if (info.daysLeft === 1) return 'Tomorrow';
-  return `In ${info.daysLeft} days`;
-}
-
 export function SchedulePage({ items, onOpen, onAdd, onShowTutorial }: SchedulePageProps) {
   if (items.length === 0) {
     return (
       <div className="page">
-        <PageTitle title="Schedule" subtitle="Everything coming up, in order." />
+        <PageTitle subtitle="Everything coming up, in order." />
         <EmptyState
           art={
             <span className="empty-round-icon">
@@ -73,7 +65,6 @@ export function SchedulePage({ items, onOpen, onAdd, onShowTutorial }: ScheduleP
   return (
     <div className="page">
       <PageTitle
-        title="Schedule"
         subtitle={
           attention > 0
             ? `${items.length} ${items.length === 1 ? 'task' : 'tasks'} · ${attention === 1 ? '1 needs' : `${attention} need`} attention`
@@ -89,7 +80,6 @@ export function SchedulePage({ items, onOpen, onAdd, onShowTutorial }: ScheduleP
           </div>
           <div className="inset-group">
             {group.items.map(({ filter, info }) => {
-              const type = findType(filter.typeId);
               return (
                 <button
                   key={filter.id}
@@ -97,21 +87,11 @@ export function SchedulePage({ items, onOpen, onAdd, onShowTutorial }: ScheduleP
                   className="schedule-row"
                   onClick={() => onOpen(filter.id)}
                 >
-                  <span className={`schedule-icon cat-${type.category}`}>
-                    <CategoryIcon category={type.category} size={17} />
-                  </span>
                   <span className="schedule-main">
                     <span className="schedule-name">{filter.name}</span>
-                    <span className="schedule-location">
-                      <MapPin size={11} />
-                      {filter.location}
-                    </span>
+                    <span className="schedule-location">{filter.location}</span>
                   </span>
-                  <span className="schedule-right">
-                    <span className={`schedule-when status-text-${info.status}`}>{whenLabel({ filter, info })}</span>
-                    <span className="schedule-date">{formatDate(info.dueDate)}</span>
-                  </span>
-                  <ChevronRight size={17} className="chevron" />
+                  <Countdown info={info} />
                 </button>
               );
             })}

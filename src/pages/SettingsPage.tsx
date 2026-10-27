@@ -1,6 +1,5 @@
 import { useRef, type ChangeEvent } from 'react';
 import type { Settings, ThemePreference } from '../types';
-import { PageTitle } from '../components/PageTitle';
 import {
   Bell,
   BookOpen,
@@ -57,7 +56,6 @@ export function SettingsPage({
 
   return (
     <div className="page">
-      <PageTitle title="Settings" subtitle="Make Replacely feel at home on this device." />
 
       <section className="settings-section">
         <p className="section-label">Appearance</p>

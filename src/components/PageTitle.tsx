@@ -1,19 +1,17 @@
 import type { ReactNode } from 'react';
 
 interface PageTitleProps {
-  title: string;
+  /** One quiet line under the header band; the band carries the page title itself. */
   subtitle?: string;
   aside?: ReactNode;
 }
 
-export function PageTitle({ title, subtitle, aside }: PageTitleProps) {
+export function PageTitle({ subtitle, aside }: PageTitleProps) {
+  if (!subtitle && !aside) return null;
   return (
-    <header className="page-title">
-      <div className="page-title-main">
-        <h1>{title}</h1>
-        {subtitle && <p>{subtitle}</p>}
-      </div>
-      {aside && <div className="page-title-aside">{aside}</div>}
-    </header>
+    <div className="page-summary">
+      {subtitle && <p>{subtitle}</p>}
+      {aside && <div className="page-summary-aside">{aside}</div>}
+    </div>
   );
 }
