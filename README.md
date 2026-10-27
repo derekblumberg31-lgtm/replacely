@@ -9,6 +9,12 @@ Filterly is a **mobile-first PWA**: it installs from Safari to the iPhone Home S
 and keeps every filter in `localStorage`. There is no account, server or sync. The interface is inspired
 by familiar Apple system patterns but uses no Apple logos or proprietary assets.
 
+**Live:** <https://derekblumberg31-lgtm.github.io/filterly/> — open it in iPhone Safari, then
+**Share → Add to Home Screen**. It is served over HTTPS, so the Home Screen app caches itself and opens
+with no computer and no internet.
+
+Source: <https://github.com/derekblumberg31-lgtm/filterly>
+
 ## What's inside
 
 - **Live countdowns** — days, hours, minutes and seconds, with healthy, due-soon and overdue states.
