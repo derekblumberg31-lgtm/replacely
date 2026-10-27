@@ -4,3 +4,9 @@ dist/
 .DS_Store
 *.local
 .freebuff/
+
+# Local Netlify folder
+.netlify
+
+# Impeccable engine binary (the launcher downloads it on first run)
+.claude/skills/impeccable/scripts/bin/

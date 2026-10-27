@@ -9,9 +9,14 @@ Replacely is a **mobile-first PWA**: it installs from Safari to the iPhone Home 
 and keeps everything in `localStorage`. There is no account, server or sync. The interface is inspired by
 familiar Apple system patterns but uses no Apple logos or proprietary assets.
 
-**Live:** <https://derekblumberg31-lgtm.github.io/replacely/> — open it in iPhone Safari, then
+**Live:** <https://replacely-derek.netlify.app> — open it in iPhone Safari, then
 **Share → Add to Home Screen**. It is served over HTTPS, so the Home Screen app caches itself and opens
-with no computer and no internet.
+with no computer and no internet. (The GitHub Pages copy at
+<https://derekblumberg31-lgtm.github.io/replacely/> still deploys on every push to `main`.)
+
+**Updating:** run `./deploy.sh` on the Mac. It builds `dist/` and publishes it to Netlify, creating the
+`replacely-derek` site the first time. Installed phones pick up the update the next time Replacely is
+opened online. First time on a new Mac: `npx netlify-cli login`.
 
 Source: <https://github.com/derekblumberg31-lgtm/replacely>
 
